@@ -62,6 +62,22 @@ public class TetriminoDAO {
 
 	}
 	
+//	public void delete(int id) {
+//		try {
+//			PreparedStatement ps = dataSource.getConnection()
+//					.prepareStatement("DELETE into tetrimino (id, nom, couleur) values(?,?,?) where id=?");
+//			ps.setInt(1, mp.getId());
+//			ps.setString(2, mp.getNom());
+//			ps.setString(3, mp.getCouleur());
+//
+//			ps.executeUpdate();
+//
+//		} catch (SQLException e) {
+//
+//		}
+//
+//	}
+	
 	public void insterTetrimino(int id, String nom, String couleur) throws SQLException {
 		String str = "INSERT into tetrimino (id, name, color) values(?,?,?)";
 		PreparedStatement ps = dataSource.getConnection().prepareStatement(str);
