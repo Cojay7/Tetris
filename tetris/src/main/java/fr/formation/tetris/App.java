@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.Environment;
 
+import fr.formation.tetris_dao.config.ConfigSpring;
 import fr.formation.tetris_dao.tetrimino.dao.TetriminoDAO;
 
 /**
@@ -16,7 +17,7 @@ public class App {
 		System.out.println("Hello World!");
 
 		// testConn();
-		testListe();
+		testDelete();
 		// testInsert();
 
 	}
@@ -46,6 +47,14 @@ public class App {
 		TetriminoDAO t = myContext.getBean(TetriminoDAO.class);
 		
 		t.insterTetrimino(4, "Flantier", "jaune");
+	}
+	
+	static void testDelete() throws SQLException {
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(
+				ConfigSpring.class);
+		TetriminoDAO t = myContext.getBean(TetriminoDAO.class);
+		
+		t.delete(4);
 	}
 
 }

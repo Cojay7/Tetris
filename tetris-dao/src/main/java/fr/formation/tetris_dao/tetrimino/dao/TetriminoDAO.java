@@ -65,21 +65,12 @@ public class TetriminoDAO {
 	public void delete(int id) {
 		
 		try {
-			dataSource.getConnection().createStatement().executeQuery("DELETE from tetrimino where id= " + id);
+			dataSource.getConnection().createStatement().executeUpdate("DELETE from tetrimino where id= " + id);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 		
-//			ps.setInt(1, mp.getId());
-//			ps.setString(2, mp.getNom());
-//			ps.setString(3, mp.getCouleur());
-//
-//			ps.executeUpdate();
-//
-//		} catch (SQLException e) {
-//
-//		}
 
 	
 	
