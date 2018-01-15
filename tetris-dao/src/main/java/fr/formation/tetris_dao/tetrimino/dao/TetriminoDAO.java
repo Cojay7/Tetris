@@ -46,6 +46,22 @@ public class TetriminoDAO {
 		return liste;
 	}
 
+	public void add(ModelTetrimino mp) {
+		try {
+			PreparedStatement ps = dataSource.getConnection()
+					.prepareStatement("INSERT into tetrimino (id, nom, couleur) values(?,?,?)");
+			ps.setInt(1, mp.getId());
+			ps.setString(2, mp.getNom());
+			ps.setString(3, mp.getCouleur());
+
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+
+		}
+
+	}
+	
 	public void insterTetrimino(int id, String nom, String couleur) throws SQLException {
 		String str = "INSERT into tetrimino (id, name, color) values(?,?,?)";
 		PreparedStatement ps = dataSource.getConnection().prepareStatement(str);
