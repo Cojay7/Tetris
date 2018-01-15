@@ -62,10 +62,15 @@ public class TetriminoDAO {
 
 	}
 	
-//	public void delete(int id) {
-//		try {
-//			PreparedStatement ps = dataSource.getConnection()
-//					.prepareStatement("DELETE into tetrimino (id, nom, couleur) values(?,?,?) where id=?");
+	public void delete(int id) {
+		
+		try {
+			dataSource.getConnection().createStatement().executeQuery("DELETE from tetrimino where id= " + id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+		
 //			ps.setInt(1, mp.getId());
 //			ps.setString(2, mp.getNom());
 //			ps.setString(3, mp.getCouleur());
@@ -75,8 +80,8 @@ public class TetriminoDAO {
 //		} catch (SQLException e) {
 //
 //		}
-//
-//	}
+
+	
 	
 	public void insterTetrimino(int id, String nom, String couleur) throws SQLException {
 		String str = "INSERT into tetrimino (id, name, color) values(?,?,?)";
