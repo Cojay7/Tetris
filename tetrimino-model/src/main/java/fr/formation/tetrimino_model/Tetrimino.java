@@ -4,17 +4,17 @@ package fr.formation.tetrimino_model;
  * Pieces
  *
  */
-public class ModelTetrimino {
+public class Tetrimino {
 
 	private int id;
 	private String nom;
 	private String couleur;
 
-	public ModelTetrimino() {
+	public Tetrimino() {
 
 	}
 
-	public ModelTetrimino(int id, String nom, String couleur) {
+	public Tetrimino(int id, String nom, String couleur) {
 		this.id = id;
 		this.nom = nom;
 		this.couleur = couleur;

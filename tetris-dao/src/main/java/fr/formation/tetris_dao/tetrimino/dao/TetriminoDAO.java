@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import fr.formation.tetrimino_model.ModelTetrimino;
+import fr.formation.tetrimino_model.Tetrimino;
 
 @Repository
 public class TetriminoDAO {
@@ -28,12 +28,12 @@ public class TetriminoDAO {
 		}
 	}
 
-	public ArrayList<ModelTetrimino> getAll() {
-		ArrayList<ModelTetrimino> liste = new ArrayList<ModelTetrimino>();
+	public ArrayList<Tetrimino> getAll() {
+		ArrayList<Tetrimino> liste = new ArrayList<Tetrimino>();
 		try {
 			ResultSet rs = dataSource.getConnection().createStatement().executeQuery("SELECT * from tetrimino");
 			while (rs.next()) {
-				ModelTetrimino mt = new ModelTetrimino();
+				Tetrimino mt = new Tetrimino();
 				mt.setId(rs.getInt("id"));
 				mt.setNom(rs.getString("name"));
 				mt.setCouleur(rs.getString("color"));
@@ -46,7 +46,7 @@ public class TetriminoDAO {
 		return liste;
 	}
 
-	public void add(ModelTetrimino mp) {
+	public void add(Tetrimino mp) {
 		try {
 			PreparedStatement ps = dataSource.getConnection()
 					.prepareStatement("INSERT into tetrimino (id, nom, couleur) values(?,?,?)");
@@ -77,7 +77,7 @@ public class TetriminoDAO {
 	public void insterTetrimino(int id, String nom, String couleur) throws SQLException {
 		String str = "INSERT into tetrimino (id, name, color) values(?,?,?)";
 		PreparedStatement ps = dataSource.getConnection().prepareStatement(str);
-		ModelTetrimino mt = new ModelTetrimino();
+		Tetrimino mt = new Tetrimino();
 		ps.setInt(1, id);
 		ps.setString(2, nom);
 		ps.setString(3, couleur);
