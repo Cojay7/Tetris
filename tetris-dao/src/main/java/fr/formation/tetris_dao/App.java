@@ -1,7 +1,7 @@
 package fr.formation.tetris_dao;
 
 /**
- * Hello world!
+ * NE SERT A RIEN
  *
  */
 public class App 
