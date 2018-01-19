@@ -1,12 +1,15 @@
 package fr.formation.tetris;
 
 import java.sql.SQLException;
+import java.util.Date;
+import java.util.Optional;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.Environment;
 
 
 import fr.formation.utilisateur.Joueur;
+import fr.formation.partie.Partie;
 import fr.formation.tetrimino.Tetrimino;
 import fr.formation.tetris_dao.*;
 import fr.formation.tetris_dao.config.*;
@@ -20,9 +23,10 @@ public class App {
 		System.out.println("Hello World!");
 
 		// testConn();
-		testUti();
-		testTetri();
+		// testUti();
+		// testTetri();
 		// testInsert();
+		testPartie();
 
 	}
 
@@ -84,5 +88,20 @@ public class App {
 		t1.setCouleur("bleu");
 		t1.setNom("ligne");
 		tdao.save(t1);
+	}
+	
+	static void testPartie() {
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
+		ITetriminoDAO tdao = myContext.getBean(ITetriminoDAO.class);
+		IJoueurDAO jdao = myContext.getBean(IJoueurDAO.class);
+		IPartieDAO pdao = myContext.getBean(IPartieDAO.class);
+		
+		Joueur j = jdao.findById(1).get();
+		Partie p = new Partie();
+		Date d1 = new Date(2017-1900,11-1,5);
+		p.setDate(d1);
+		p.setJoueur(j);
+		pdao.save(p);
+		
 	}
 }
