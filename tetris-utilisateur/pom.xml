@@ -89,6 +89,13 @@
 			<artifactId>hibernate-ehcache</artifactId>
 			<version>5.2.12.Final</version>
 		</dependency>
+		
+			<dependency>
+			<groupId>fr.formation</groupId>
+			<artifactId>tetris-partie</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
   
 	</dependencies>
 </project>

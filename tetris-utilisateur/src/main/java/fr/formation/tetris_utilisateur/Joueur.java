@@ -1,6 +1,10 @@
 package fr.formation.tetris_utilisateur;
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
+
+import fr.formation.tetris_partie.Partie;
 
 
 @Entity
@@ -8,8 +12,8 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name = "JOU_ID", referencedColumnName = "UTI_ID")
 public class Joueur extends Utilisateur {
 
-	
-	
+	@OneToMany(mappedBy = "joueur")
+	private List<Partie> parties;
 	
 	
 	@Override
