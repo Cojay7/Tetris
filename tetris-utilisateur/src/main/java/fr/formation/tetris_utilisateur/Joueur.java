@@ -8,6 +8,10 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name = "JOU_ID", referencedColumnName = "UTI_ID")
 public class Joueur extends Utilisateur {
 
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Joueur [id = " + getId() + " - login = " + getLogin() + ", getPassword()=" + getPassword() +"]";

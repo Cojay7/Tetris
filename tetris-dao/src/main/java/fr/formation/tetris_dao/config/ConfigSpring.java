@@ -19,12 +19,12 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan({"fr.formation.tetrimino_model","fr.formation.tetris_dao.tetrimino.dao","fr.formation.tetris_utilisateur"})
+@ComponentScan({"fr.formation.tetris_dao","fr.formation.tetris_dao.tetrimino.dao","fr.formation.tetris_utilisateur","fr.formation.tetrimino_model"})
 @PropertySource({ "classpath:data-source.properties" })
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
 //Pensez à mettre à jour selon les besoins
-@EnableJpaRepositories({"fr.formation.tetrimino_model","fr.formation.tetris_utilisateur","fr.formation.tetris","fr.formation.tetris_model_faq"})
+@EnableJpaRepositories({"fr.formation.tetris_dao","fr.formation.tetris_utilisateur","fr.formation.tetris","fr.formation.tetris_model_faq","fr.formation.tetrimino_model"})
 public class ConfigSpring {
 	
 	@Bean
@@ -32,7 +32,7 @@ public class ConfigSpring {
 	LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 	emf.setDataSource(dataSource);
 	//Pensez à mettre à jour selon les besoins
-	emf.setPackagesToScan("fr.formation.tetrimino_model","fr.formation.tetris_utilisateur","fr.formation.tetris","fr.formation.tetris_model_faq");
+	emf.setPackagesToScan("fr.formation.tetris_dao","fr.formation.tetris_utilisateur","fr.formation.tetris","fr.formation.tetris_model_faq","fr.formation.tetrimino_model");
 	JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 	emf.setJpaVendorAdapter(vendorAdapter);
 	emf.setJpaProperties(this.hibernateProperties());

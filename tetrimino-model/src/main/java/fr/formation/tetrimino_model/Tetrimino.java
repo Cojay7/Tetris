@@ -1,24 +1,38 @@
 package fr.formation.tetrimino_model;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 /**
  * Pieces
  *
  */
-public class Tetrimino {
 
+import java.io.Serializable;
+
+@Entity
+@Table(name = "tetrimino")
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Tetrimino implements Serializable {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "TET_ID")
 	private int id;
+
+	@Column(name = "TET_NOM")
 	private String nom;
+
+	@Column(name = "TET_COULEUR")
 	private String couleur;
-
-	public Tetrimino() {
-
-	}
-
-	public Tetrimino(int id, String nom, String couleur) {
-		this.id = id;
-		this.nom = nom;
-		this.couleur = couleur;
-	}
 
 	public int getId() {
 		return id;
@@ -46,7 +60,7 @@ public class Tetrimino {
 
 	@Override
 	public String toString() {
-		return "ModelTetrimino [id=" + id + ", nom=" + nom + ", couleur=" + couleur + "]";
+		return "Tetrimino [id = " + id + " - nom = " + nom + " - couleur = " + couleur + "]";
 	}
 
 }
