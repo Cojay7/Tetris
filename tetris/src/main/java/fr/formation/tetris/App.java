@@ -25,7 +25,21 @@ public class App {
 		System.out.println("Hello World!");
 
 		// testConn();
+<<<<<<< Updated upstream
 		testPartie2();
+=======
+
+//		testUti();
+//		testTetri();
+		// testInsert();
+		testRota();
+
+		// testUti();
+		// testTetri();
+		// testInsert();
+		testPartie();
+
+>>>>>>> Stashed changes
 
 	}
 
@@ -103,8 +117,13 @@ public class App {
 		t1.setForme_3rota(t1.rotation(t1.getForme_2rota()));
 		t1.setForme_4rota(t1.rotation(t1.getForme_3rota()));
 		
+<<<<<<< Updated upstream
 		tdao.save(t1); }
 
+=======
+		tdao.save(t1);
+	}
+>>>>>>> Stashed changes
 	static void testPartie() {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
 		ITetriminoDAO tdao = myContext.getBean(ITetriminoDAO.class);
@@ -118,6 +137,7 @@ public class App {
 		p.setJoueur(j);
 		pdao.save(p);
 
+<<<<<<< Updated upstream
 		
 	}
 	
@@ -137,6 +157,8 @@ public class App {
 		coup1.setTetrimino(t1);
 		coup1.setPartie(p);
 		cdao.save(coup1);
+=======
+>>>>>>> Stashed changes
 		
 		
 
