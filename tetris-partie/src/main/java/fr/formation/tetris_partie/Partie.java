@@ -1,5 +1,6 @@
 package fr.formation.tetris_partie;
-//import fr.formation.tetris_utilisateur;
+import fr.formation.tetris_utilisateur.Joueur;
+
 import java.util.Date;
 
 import javax.persistence.*;
@@ -17,7 +18,7 @@ public class Partie {
 	@Temporal(TemporalType.DATE)
 	private Date date;
 	
-	//@ManyToOne
-	//@JoinColumn(name = "JOU_ID")
-	//private Joueur joueur;
+	@ManyToOne
+	@JoinColumn(name = "JOU_ID")
+	private Joueur joueur;
 }
