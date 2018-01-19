@@ -20,9 +20,10 @@ public class App {
 		System.out.println("Hello World!");
 
 		// testConn();
-		testUti();
-		testTetri();
+//		testUti();
+//		testTetri();
 		// testInsert();
+		testRota();
 
 	}
 
@@ -70,9 +71,8 @@ public class App {
 		IJoueurDAO jdao = myContext.getBean(IJoueurDAO.class);
 
 		Joueur j1 = new Joueur();
-		j1.setLogin("Julie");
-		j1.setPassword("hustache");
-		jdao.save(j1);
+		System.out.println(jdao.findById(1));
+		
 
 	}
 
@@ -84,5 +84,23 @@ public class App {
 		t1.setCouleur("bleu");
 		t1.setNom("ligne");
 		tdao.save(t1);
+	}
+	
+	static void testRota() {
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
+		ITetriminoDAO tdao = myContext.getBean(ITetriminoDAO.class);
+
+		Tetrimino t1 = tdao.findById(1).get();
+		
+		t1.setNom("petit_t");
+	
+		t1.setForme_1rota("0,0,0/1,1,1/0,1,0");	
+		
+		t1.setForme_2rota(t1.rotation(t1.getForme_1rota()));
+		t1.setForme_3rota(t1.rotation(t1.getForme_2rota()));
+		t1.setForme_4rota(t1.rotation(t1.getForme_3rota()));
+		
+		tdao.save(t1);
+		
 	}
 }

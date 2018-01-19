@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import java.util.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Pieces
@@ -33,6 +36,71 @@ public class Tetrimino implements Serializable {
 
 	@Column(name = "TET_COULEUR")
 	private String couleur;
+
+	@Column(name = "TET_FORME_1ROTA")
+	private String forme_1rota;
+
+	@Column(name = "TET_FORME_2ROTA")
+	private String forme_2rota;
+
+	@Column(name = "TET_FORME_3ROTA")
+	private String forme_3rota;
+
+	@Column(name = "TET_FORME_4ROTA")
+	private String forme_4rota;
+
+	public String rotation(String forme_1rota) {
+		String res = "";
+		String[] formes = forme_1rota.split("/");
+		int h = formes.length;
+		String[][] matrice = new String[h][];
+
+		for (int i = 0; i < h; i++) {
+			matrice[i] = formes[i].split(",");
+		}
+
+		int l = matrice[0].length;
+
+		for (int i = 0; i < l; i++) {
+			for (int j = 0; j < h; j++) {
+				res += matrice[j][l - i - 1] + ",";
+			}
+			res += "/";
+		}
+		return res;
+	}
+
+	public String getForme_1rota() {
+		return forme_1rota;
+	}
+
+	public void setForme_1rota(String forme_base) {
+		this.forme_1rota = forme_base;
+	}
+
+	public String getForme_2rota() {
+		return forme_2rota;
+	}
+
+	public void setForme_2rota(String forme_2rota) {
+		this.forme_2rota = forme_2rota;
+	}
+
+	public String getForme_3rota() {
+		return forme_3rota;
+	}
+
+	public void setForme_3rota(String forme_3rota) {
+		this.forme_3rota = forme_3rota;
+	}
+
+	public String getForme_4rota() {
+		return forme_4rota;
+	}
+
+	public void setForme_4rota(String forme_4rota) {
+		this.forme_4rota = forme_4rota;
+	}
 
 	public int getId() {
 		return id;
