@@ -25,21 +25,7 @@ public class App {
 		System.out.println("Hello World!");
 
 		// testConn();
-<<<<<<< HEAD
-//		testUti();
-//		testTetri();
-		// testInsert();
-		testRota();
-=======
-		// testUti();
-		// testTetri();
-		// testInsert();
-<<<<<<< Updated upstream
-		testPartie();
->>>>>>> Dev
-=======
 		testPartie2();
->>>>>>> Stashed changes
 
 	}
 
@@ -102,7 +88,7 @@ public class App {
 		tdao.save(t1);
 	}
 	
-<<<<<<< HEAD
+
 	static void testRota() {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
 		ITetriminoDAO tdao = myContext.getBean(ITetriminoDAO.class);
@@ -117,8 +103,8 @@ public class App {
 		t1.setForme_3rota(t1.rotation(t1.getForme_2rota()));
 		t1.setForme_4rota(t1.rotation(t1.getForme_3rota()));
 		
-		tdao.save(t1);
-=======
+		tdao.save(t1); }
+
 	static void testPartie() {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
 		ITetriminoDAO tdao = myContext.getBean(ITetriminoDAO.class);
@@ -131,7 +117,7 @@ public class App {
 		p.setDate(d1);
 		p.setJoueur(j);
 		pdao.save(p);
->>>>>>> Dev
+
 		
 	}
 	
@@ -143,15 +129,18 @@ public class App {
 		ICoupDAO cdao = myContext.getBean(ICoupDAO.class);
 				
 		Partie p = new Partie();
+		Joueur j = jdao.findById(2).get();
+		p.setJoueur(j);
+		
 		Tetrimino t1 = tdao.findById(1).get();
 		Coup coup1 = new Coup();
 		coup1.setTetrimino(t1);
+		coup1.setPartie(p);
 		cdao.save(coup1);
 		
-		Date d1 = new Date(2017-1900,11-1,5);
-		p.setDate(d1);
-		p.setJoueur(jdao.findById(2).get());
-		p.setCoups(cdao.findAll());
-		pdao.save(p);
+		
+
 	}
+	
+	
 }
