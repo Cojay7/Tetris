@@ -1,4 +1,6 @@
 package fr.formation.tetris_partie;
+//import fr.formation.tetris_utilisateur;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -6,6 +8,16 @@ import javax.persistence.*;
 @Table(name="partie")
 public class Partie {
 
+	@Id
+	@Column(name = "PAR_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	
+	@Column(name = "PAR_DATE")
+	@Temporal(TemporalType.DATE)
+	private Date date;
 	
+	//@ManyToOne
+	//@JoinColumn(name = "JOU_ID")
+	//private Joueur joueur;
 }
