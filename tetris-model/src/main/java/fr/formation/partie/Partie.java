@@ -1,6 +1,7 @@
 package fr.formation.partie;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -9,6 +10,11 @@ import fr.formation.utilisateur.Joueur;
 @Entity
 @Table(name="partie")
 public class Partie {
+
+	@Override
+	public String toString() {
+		return "Partie [id=" + id + ", date=" + date + ", joueur=" + joueur + "]";
+	}
 
 	@Id
 	@Column(name = "PAR_ID")
@@ -46,4 +52,16 @@ public class Partie {
 	@ManyToOne
 	@JoinColumn(name = "PAR_JOUEUR_ID")
 	private Joueur joueur;
+	
+	public List<Coup> getCoups() {
+		return coups;
+	}
+
+	public void setCoups(List<Coup> coups) {
+		this.coups = coups;
+	}
+
+	@OneToMany(mappedBy = "partie")
+	private List<Coup> coups;
+	
 }
