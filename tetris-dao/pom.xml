@@ -62,15 +62,11 @@
 		</dependency>
 		<dependency>
 			<groupId>fr.formation</groupId>
-			<artifactId>tetrimino-model</artifactId>
+			<artifactId>tetris-model</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		
-		<dependency>
-			<groupId>fr.formation</groupId>
-			<artifactId>tetris-utilisateur</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		
 		
 	
 		<dependency>

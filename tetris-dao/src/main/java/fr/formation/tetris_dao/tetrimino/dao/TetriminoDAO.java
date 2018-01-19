@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import fr.formation.tetrimino_model.Tetrimino;
+import fr.formation.tetrimino.Tetrimino;
 
 @Repository
 public class TetriminoDAO {

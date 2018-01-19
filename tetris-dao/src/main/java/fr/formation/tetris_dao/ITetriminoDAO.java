@@ -2,7 +2,7 @@ package fr.formation.tetris_dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import fr.formation.tetrimino_model.Tetrimino;
+import fr.formation.tetrimino.Tetrimino;
 
 
 
