@@ -107,6 +107,12 @@
 			<groupId>fr.formation</groupId>
 			<artifactId>tetris-utilisateur</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>fr.formation</groupId>
+					<artifactId>tetris-partie</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
