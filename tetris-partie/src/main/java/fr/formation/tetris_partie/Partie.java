@@ -18,7 +18,31 @@ public class Partie {
 	@Temporal(TemporalType.DATE)
 	private Date date;
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Joueur getJoueur() {
+		return joueur;
+	}
+
+	public void setJoueur(Joueur joueur) {
+		this.joueur = joueur;
+	}
+
 	@ManyToOne
-	@JoinColumn(name = "JOU_ID")
+	@JoinColumn(name = "PAR_JOUEUR_ID")
 	private Joueur joueur;
 }
