@@ -65,6 +65,14 @@
 			<artifactId>tetrimino-model</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>fr.formation</groupId>
+			<artifactId>tetris-utilisateur</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+	
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-dbcp2</artifactId>
