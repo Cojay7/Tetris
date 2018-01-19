@@ -2,6 +2,7 @@ package fr.formation.tetris;
 
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -9,6 +10,7 @@ import org.springframework.core.env.Environment;
 
 
 import fr.formation.utilisateur.Joueur;
+import fr.formation.partie.Coup;
 import fr.formation.partie.Partie;
 import fr.formation.tetrimino.Tetrimino;
 import fr.formation.tetris_dao.*;
@@ -32,8 +34,12 @@ public class App {
 		// testUti();
 		// testTetri();
 		// testInsert();
+<<<<<<< Updated upstream
 		testPartie();
 >>>>>>> Dev
+=======
+		testPartie2();
+>>>>>>> Stashed changes
 
 	}
 
@@ -127,5 +133,25 @@ public class App {
 		pdao.save(p);
 >>>>>>> Dev
 		
+	}
+	
+	static void testPartie2() {
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
+		ITetriminoDAO tdao = myContext.getBean(ITetriminoDAO.class);
+		IJoueurDAO jdao = myContext.getBean(IJoueurDAO.class);
+		IPartieDAO pdao = myContext.getBean(IPartieDAO.class);
+		ICoupDAO cdao = myContext.getBean(ICoupDAO.class);
+				
+		Partie p = new Partie();
+		Tetrimino t1 = tdao.findById(1).get();
+		Coup coup1 = new Coup();
+		coup1.setTetrimino(t1);
+		cdao.save(coup1);
+		
+		Date d1 = new Date(2017-1900,11-1,5);
+		p.setDate(d1);
+		p.setJoueur(jdao.findById(2).get());
+		p.setCoups(cdao.findAll());
+		pdao.save(p);
 	}
 }
