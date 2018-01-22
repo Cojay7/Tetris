@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.Environment;
 
+import fr.formation.utilisateur.Admin;
 import fr.formation.utilisateur.Joueur;
 import fr.formation.partie.Coup;
 import fr.formation.partie.Partie;
@@ -25,7 +26,7 @@ public class App {
 
 		// testConn();
 
-		testPartie3();
+		testAdmin();
 
 		// testUti();
 		// testTetri();
@@ -123,12 +124,12 @@ public class App {
 
 		Joueur j = jdao.findById(1).get();
 		Partie p = new Partie();
-<<<<<<< HEAD
+
 		Date d1 = new Date();
 		d1.getDate();
-=======
-		Date d1 = new Date(2017 - 1900, 11 - 1, 5);
->>>>>>> Dev
+
+		//Date d1 = new Date(2017 - 1900, 11 - 1, 5);
+
 		p.setDate(d1);
 		p.setJoueur(j);
 		pdao.save(p);
@@ -166,6 +167,16 @@ public class App {
 		Coup c = cdao.findById(2).get();
 		System.out.println(cdao.findByPartie(p));
 		System.out.println(pdao.findByJoueur(j));
+	}
+	
+	static void testAdmin() {
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
+		
+		IAdminDAO jdao = myContext.getBean(IAdminDAO.class);
+		Admin ad = new Admin();
+		ad.setLogin("Hercule");
+		ad.setPassword("disney");
+		jdao.save(ad);
 	}
 
 }

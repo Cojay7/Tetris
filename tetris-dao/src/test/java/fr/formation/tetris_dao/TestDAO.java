@@ -55,14 +55,14 @@ public class TestDAO {
 	@Transactional
 	@Rollback(true)
 	public void testModifier() {
-		Optional<Admin> p = iadao.findById(1);
+		Optional<Admin> p = iadao.findById(3);
 		Admin myAdmin;
 		assertTrue(p.isPresent());
 		myAdmin = p.get();
 		assertNotNull(myAdmin);
 		myAdmin.setLogin("toutafé");
 		iadao.save(myAdmin);
-		assertEquals("toutafé", iadao.findById(1).get().getLogin());
+		assertEquals("toutafé", iadao.findById(3).get().getLogin());
 		
 //		Optional<Coup> c = icdao.findById(1);
 //		Coup myCoup;
