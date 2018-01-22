@@ -8,7 +8,6 @@ import java.util.Optional;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.Environment;
 
-
 import fr.formation.utilisateur.Joueur;
 import fr.formation.partie.Coup;
 import fr.formation.partie.Partie;
@@ -25,7 +24,18 @@ public class App {
 		System.out.println("Hello World!");
 
 		// testConn();
-		testPartie2();
+
+		testPartie3();
+
+		// testUti();
+		// testTetri();
+		// testInsert();
+		testRota();
+
+		// testUti();
+		// testTetri();
+		// testInsert();
+		testPartie();
 
 	}
 
@@ -74,7 +84,6 @@ public class App {
 
 		Joueur j1 = new Joueur();
 		System.out.println(jdao.findById(1));
-		
 
 	}
 
@@ -87,61 +96,76 @@ public class App {
 		t1.setNom("ligne");
 		tdao.save(t1);
 	}
-	
 
 	static void testRota() {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
 		ITetriminoDAO tdao = myContext.getBean(ITetriminoDAO.class);
 
 		Tetrimino t1 = tdao.findById(1).get();
-		
+
 		t1.setNom("petit_t");
-	
-		t1.setForme_1rota("0,0,0/1,1,1/0,1,0");	
-		
+
+		t1.setForme_1rota("0,0,0/1,1,1/0,1,0");
+
 		t1.setForme_2rota(t1.rotation(t1.getForme_1rota()));
 		t1.setForme_3rota(t1.rotation(t1.getForme_2rota()));
 		t1.setForme_4rota(t1.rotation(t1.getForme_3rota()));
-		
-		tdao.save(t1); }
+
+		tdao.save(t1);
+
+	}
 
 	static void testPartie() {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
 		ITetriminoDAO tdao = myContext.getBean(ITetriminoDAO.class);
 		IJoueurDAO jdao = myContext.getBean(IJoueurDAO.class);
 		IPartieDAO pdao = myContext.getBean(IPartieDAO.class);
-		
+
 		Joueur j = jdao.findById(1).get();
 		Partie p = new Partie();
+<<<<<<< HEAD
 		Date d1 = new Date();
 		d1.getDate();
+=======
+		Date d1 = new Date(2017 - 1900, 11 - 1, 5);
+>>>>>>> Dev
 		p.setDate(d1);
 		p.setJoueur(j);
 		pdao.save(p);
 
-		
 	}
-	
+
 	static void testPartie2() {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
 		ITetriminoDAO tdao = myContext.getBean(ITetriminoDAO.class);
 		IJoueurDAO jdao = myContext.getBean(IJoueurDAO.class);
 		IPartieDAO pdao = myContext.getBean(IPartieDAO.class);
 		ICoupDAO cdao = myContext.getBean(ICoupDAO.class);
-				
+
 		Partie p = new Partie();
 		Joueur j = jdao.findById(2).get();
 		p.setJoueur(j);
-		
+
 		Tetrimino t1 = tdao.findById(1).get();
 		Coup coup1 = new Coup();
 		coup1.setTetrimino(t1);
 		coup1.setPartie(p);
 		cdao.save(coup1);
-		
-		
 
 	}
 	
-	
+	static void testPartie3() {
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
+		ITetriminoDAO tdao = myContext.getBean(ITetriminoDAO.class);
+		IJoueurDAO jdao = myContext.getBean(IJoueurDAO.class);
+		IPartieDAO pdao = myContext.getBean(IPartieDAO.class);
+		ICoupDAO cdao = myContext.getBean(ICoupDAO.class);
+		
+		Partie p = pdao.findById(2).get();
+		Joueur j = jdao.findById(2).get();
+		Coup c = cdao.findById(2).get();
+		System.out.println(cdao.findByPartie(p));
+		System.out.println(pdao.findByJoueur(j));
+	}
+
 }
