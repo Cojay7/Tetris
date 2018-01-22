@@ -123,12 +123,11 @@ public class App {
 
 		Joueur j = jdao.findById(1).get();
 		Partie p = new Partie();
-<<<<<<< HEAD
+
 		Date d1 = new Date();
 		d1.getDate();
-=======
-		Date d1 = new Date(2017 - 1900, 11 - 1, 5);
->>>>>>> Dev
+
+
 		p.setDate(d1);
 		p.setJoueur(j);
 		pdao.save(p);
@@ -164,8 +163,8 @@ public class App {
 		Partie p = pdao.findById(2).get();
 		Joueur j = jdao.findById(2).get();
 		Coup c = cdao.findById(2).get();
-		System.out.println(cdao.findByPartie(p));
-		System.out.println(pdao.findByJoueur(j));
+		//System.out.println(cdao.findByPartie(p));
+		//System.out.println(pdao.findByJoueur(j));
 	}
 
 }
