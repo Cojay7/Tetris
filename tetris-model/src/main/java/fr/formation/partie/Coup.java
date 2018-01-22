@@ -26,11 +26,11 @@ public class Coup {
 	@JoinColumn(name = "COU_TETRIMINO_ID")
 	private Tetrimino tetrimino;
 	
-	@ManyToOne
-	@JoinColumn(name = "COU_JOUEUR_ID")
-	private Joueur joueur;
-	
-	
+//	@ManyToOne
+//	@JoinColumn(name = "COU_JOUEUR_ID")
+//	private Joueur joueur;
+//	
+//	
 	@ManyToOne
 	@JoinColumn(name = "COU_PARTIE_ID")
 	private Partie partie;
@@ -51,13 +51,13 @@ public class Coup {
 		this.tetrimino = tetrimino;
 	}
 
-	public Joueur getJoueur() {
-		return joueur;
-	}
-
-	public void setJoueur(Joueur joueur) {
-		this.joueur = joueur;
-	}
+//	public Joueur getJoueur() {
+//		return joueur;
+//	}
+//
+//	public void setJoueur(Joueur joueur) {
+//		this.joueur = joueur;
+//	}
 
 	public Partie getPartie() {
 		return partie;
