@@ -127,12 +127,7 @@ public class App {
 
 		Date d1 = new Date();
 		d1.getDate();
-<<<<<<< HEAD
 
-=======
-
-		//Date d1 = new Date(2017 - 1900, 11 - 1, 5);
->>>>>>> Dev
 
 		p.setDate(d1);
 		p.setJoueur(j);
