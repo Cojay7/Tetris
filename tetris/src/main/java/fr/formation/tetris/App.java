@@ -29,7 +29,7 @@ public class App {
 
 		// testFAQ();
 
-		// testUti();
+		Authen();
 		// testTetri();
 		// testInsert();
 		// testRota();
@@ -40,7 +40,7 @@ public class App {
 		// testPartie();
 
 		// testFinal();
-		Affiche2();
+		// Affiche2();
 
 	}
 
@@ -85,10 +85,12 @@ public class App {
 
 	static void testUti() {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
-		IJoueurDAO jdao = myContext.getBean(IJoueurDAO.class);
+		IAdminDAO adao = myContext.getBean(IAdminDAO.class);
 
-		Joueur j1 = new Joueur();
-		System.out.println(jdao.findById(1));
+		Admin a1 = new Admin();
+		a1.setLogin("Jafar");
+		a1.setPassword("yago");
+		adao.save(a1);
 
 	}
 
@@ -243,4 +245,28 @@ public class App {
 
 	}
 
+	static void Authen() {
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
+		IAdminDAO adao = myContext.getBean(IAdminDAO.class);
+		IJoueurDAO jdao = myContext.getBean(IJoueurDAO.class);
+		
+		try {
+			if(jdao.auth("gfgrgr", "yago") != null)
+			System.out.println("Bienvenue au joueur\t" +jdao.auth("gfgrgr", "yago"));
+			else throw new Exception();
+			}
+			catch (Exception e) {
+				System.out.println("Désolé, erreur de connexion");
+			}
+		
+		try {
+			if(adao.auth("Jafar", "yago") != null)
+			System.out.println("Bienvenue à l'administrateur\t" +adao.auth("Jafar", "yago"));
+			else throw new Exception();
+			}
+			catch (Exception e) {
+				System.out.println("Désolé, erreur de connexion");
+			}
+	
+}
 }

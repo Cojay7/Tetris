@@ -10,6 +10,7 @@ import fr.formation.partie.Partie;
 @Entity
 @Table(name = "joueur")
 @PrimaryKeyJoinColumn(name = "JOU_ID", referencedColumnName = "UTI_ID")
+
 public class Joueur extends Utilisateur {
 
 	@OneToMany(mappedBy = "joueur")
