@@ -30,12 +30,12 @@ public class App {
 		// testUti();
 		// testTetri();
 		// testInsert();
-		testRota();
+//		testRota();
 
 		// testUti();
 		// testTetri();
 		// testInsert();
-		testPartie();
+//		testPartie();
 
 	}
 
