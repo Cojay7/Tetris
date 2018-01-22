@@ -12,6 +12,6 @@ public interface ICoupDAO  extends JpaRepository<Coup, Integer> {
 
 	public List<Coup> findByPartie(Partie partie);
 	
-	@Query("from Coup left join fetch c.joueur")
-	public List<Coup> findAll();
+//	@Query("from Coup left join fetch c.joueur")
+//	public List<Coup> findAll();
 }
