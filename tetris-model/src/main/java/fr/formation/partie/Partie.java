@@ -25,6 +25,17 @@ public class Partie {
 	@Temporal(TemporalType.DATE)
 	private Date date;
 	
+	@Column(name = "PAR_SCORE")
+	private int score;
+	
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
 	public int getId() {
 		return id;
 	}
