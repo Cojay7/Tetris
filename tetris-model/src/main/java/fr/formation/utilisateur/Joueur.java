@@ -18,7 +18,7 @@ public class Joueur extends Utilisateur {
 	
 	@Override
 	public String toString() {
-		return "Joueur [id = " + getId() + " - login = " + getLogin() + ", getPassword()=" + getPassword() +"]";
+		return getLogin();
 	}
 
 	

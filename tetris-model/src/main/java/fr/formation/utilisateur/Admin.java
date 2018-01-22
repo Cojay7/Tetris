@@ -15,7 +15,7 @@ public class Admin extends Utilisateur {
 	
 	@Override
 	public String toString() {
-		return "Admin [id = " + getId() + " - login = " + getLogin() + ", getPassword()=" + getPassword() +"]";
+		return getLogin();
 	}
 	
 }

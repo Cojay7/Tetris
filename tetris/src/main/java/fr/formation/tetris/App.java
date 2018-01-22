@@ -27,17 +27,20 @@ public class App {
 
 		// testConn();
 
-		testFAQ();
+		// testFAQ();
 
 		// testUti();
 		// testTetri();
 		// testInsert();
-//		testRota();
+		// testRota();
 
 		// testUti();
 		// testTetri();
 		// testInsert();
-//		testPartie();
+		// testPartie();
+
+		// testFinal();
+		Affiche();
 
 	}
 
@@ -129,7 +132,6 @@ public class App {
 		Date d1 = new Date();
 		d1.getDate();
 
-
 		p.setDate(d1);
 		p.setJoueur(j);
 		pdao.save(p);
@@ -154,24 +156,24 @@ public class App {
 		cdao.save(coup1);
 
 	}
-	
+
 	static void testPartie3() {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
 		ITetriminoDAO tdao = myContext.getBean(ITetriminoDAO.class);
 		IJoueurDAO jdao = myContext.getBean(IJoueurDAO.class);
 		IPartieDAO pdao = myContext.getBean(IPartieDAO.class);
 		ICoupDAO cdao = myContext.getBean(ICoupDAO.class);
-		
+
 		Partie p = pdao.findById(2).get();
 		Joueur j = jdao.findById(2).get();
 		Coup c = cdao.findById(2).get();
-		//System.out.println(cdao.findByPartie(p));
-		//System.out.println(pdao.findByJoueur(j));
+		// System.out.println(cdao.findByPartie(p));
+		// System.out.println(pdao.findByJoueur(j));
 	}
-	
+
 	static void testAdmin() {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
-		
+
 		IAdminDAO jdao = myContext.getBean(IAdminDAO.class);
 		Admin ad = new Admin();
 		ad.setLogin("Hercule");
@@ -181,16 +183,51 @@ public class App {
 
 	static void testFAQ() {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
-		
+
 		IFaqDAO fdao = myContext.getBean(IFaqDAO.class);
-		Faq f = new Faq ();
+		Faq f = new Faq();
 		f.setQuestion("What are the keyboard controls for this game?");
-		f.setReponse("Arrow Keys – Move the Tetrimino\n" + 
-				"Rotate Clockwise – Up Arrow\n" + 
-				"Rotate Counter–clockwise – Z\n" + 
-				"Hard Drop – Space Bar\n" + 
-				"Pause – esc");
+		f.setReponse("Arrow Keys – Move the Tetrimino\n" + "Rotate Clockwise – Up Arrow\n"
+				+ "Rotate Counter–clockwise – Z\n" + "Hard Drop – Space Bar\n" + "Pause – esc");
 		fdao.save(f);
+	}
+
+	static void testFinal() {
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
+		ITetriminoDAO tdao = myContext.getBean(ITetriminoDAO.class);
+		IJoueurDAO jdao = myContext.getBean(IJoueurDAO.class);
+		IPartieDAO pdao = myContext.getBean(IPartieDAO.class);
+		ICoupDAO cdao = myContext.getBean(ICoupDAO.class);
+
+		Partie p = pdao.findById(2).get();
+		Joueur j = jdao.findById(2).get();
+		Coup coup1 = new Coup();
+		coup1.setTetrimino(tdao.findById(1).get());
+		coup1.setPartie(p);
+		cdao.save(coup1);
+		Date d1 = new Date();
+		d1.getDate();
+		p.setDate(d1);
+		p.setJoueur(j);
+		pdao.save(p);
+
+		List<Partie> parties = pdao.findAll();
+		for (Partie p2 : parties) {
+			System.out.println(p2 + "\n");
+			System.out.println("Joueur : " + p2.getJoueur() + "\n");
+		}
+
+	}
+
+	static void Affiche() {
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
+		IPartieDAO pdao = myContext.getBean(IPartieDAO.class);
+
+		List<Partie> parties = pdao.findAll();
+		for (Partie p : parties) {
+			System.out.println(p + "\n");
+			System.out.println("Joueur : " + p.getJoueur() + "\n");
+		}
 	}
 
 }
