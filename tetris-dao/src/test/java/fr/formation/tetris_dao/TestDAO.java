@@ -57,11 +57,10 @@ public class TestDAO {
 	@Test
 	@Transactional
 	@Rollback(true)
-<<<<<<< HEAD
+
 	public void testModifierAdmin() {
-=======
-	public void testModifier() {
->>>>>>> Dev
+
+
 		Optional<Admin> p = iadao.findById(3);
 		Admin myAdmin;
 		assertTrue(p.isPresent());
@@ -70,7 +69,7 @@ public class TestDAO {
 		myAdmin.setLogin("toutafé");
 		iadao.save(myAdmin);
 		assertEquals("toutafé", iadao.findById(3).get().getLogin());
-<<<<<<< HEAD
+
 	}
 
 	@Test
@@ -127,44 +126,7 @@ public class TestDAO {
 		myTetri.setCouleur("rouge clair");
 		itdao.save(myTetri);
 		assertEquals("rouge clair", itdao.findById(1).get().getCouleur());
-=======
-		
-//		Optional<Coup> c = icdao.findById(1);
-//		Coup myCoup;
-//		assertTrue(c.isPresent());
-//		myCoup = c.get();
-//		assertNotNull(myCoup);
-//		myCoup.setTetrimino(itdao.findById(2).get());
-//		icdao.save(myCoup);
-//		assertEquals(2, icdao.findById(1).get().getTetrimino());
-//		
-//		Optional<Joueur> j = ijdao.findById(1);
-//		Joueur myJoueur;
-//		assertTrue(j.isPresent());
-//		myJoueur = j.get();
-//		assertNotNull(myJoueur);
-//		myJoueur.setLogin("toutafé");
-//		ijdao.save(myJoueur);
-//		assertEquals("toutafé", ijdao.findById(1).get().getLogin());
-//		
-//		Optional<Partie> p2 = ipdao.findById(1);
-//		Partie myPartie;
-//		assertTrue(p2.isPresent());
-//		myPartie = p2.get();
-//		assertNotNull(myPartie);
-//		myPartie.setJoueur(ijdao.findById(2).get());
-//		ipdao.save(myPartie);
-//		assertEquals(2, ipdao.findById(1).get().getJoueur());
-//		
-//		Optional<Tetrimino> t = itdao.findById(1);
-//		Tetrimino myTetri;
-//		assertTrue(t.isPresent());
-//		myTetri = t.get();
-//		assertNotNull(myTetri);
-//		myTetri.setCouleur("rouge clair");
-//		itdao.save(myTetri);
-//		assertEquals("rouge clair", itdao.findById(1).get().getCouleur());
->>>>>>> Dev
+
 
 	}
 
