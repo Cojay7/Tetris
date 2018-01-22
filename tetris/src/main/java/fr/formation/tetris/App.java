@@ -113,7 +113,8 @@ public class App {
 		
 		Joueur j = jdao.findById(1).get();
 		Partie p = new Partie();
-		Date d1 = new Date(2017-1900,11-1,5);
+		Date d1 = new Date();
+		d1.getDate();
 		p.setDate(d1);
 		p.setJoueur(j);
 		pdao.save(p);
