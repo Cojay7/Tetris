@@ -40,7 +40,7 @@ public class App {
 		// testPartie();
 
 		// testFinal();
-		Affiche();
+		Affiche2();
 
 	}
 
@@ -228,6 +228,19 @@ public class App {
 			System.out.println(p + "\n");
 			System.out.println("Joueur : " + p.getJoueur() + "\n");
 		}
+	}
+
+	static void Affiche2() {
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
+		IPartieDAO pdao = myContext.getBean(IPartieDAO.class);
+		IJoueurDAO jdao = myContext.getBean(IJoueurDAO.class);
+
+		List<Partie> parties = pdao.findByJoueur(jdao.findById(2).get());
+		for (Partie p : parties) {
+			System.out.println(p + "\n");
+
+		}
+
 	}
 
 }
