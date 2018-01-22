@@ -16,10 +16,10 @@ public class Faq {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "FAQ_QUESTION")
+	@Column(name = "FAQ_QUESTION", columnDefinition = "VARCHAR(1000)")
 	private String question;
 
-	@Column(name = "FAQ_REPONSE")
+	@Column(name = "FAQ_REPONSE", columnDefinition = "VARCHAR(1500)")
 	private String reponse;
 
 	public int getId() {

@@ -15,6 +15,7 @@ import fr.formation.partie.Partie;
 import fr.formation.tetrimino.Tetrimino;
 import fr.formation.tetris_dao.*;
 import fr.formation.tetris_dao.config.*;
+import fr.formation.tetris_model_faq.Faq;
 
 /**
  * LE MAIN DE OUF
@@ -26,7 +27,7 @@ public class App {
 
 		// testConn();
 
-		testAdmin();
+		testFAQ();
 
 		// testUti();
 		// testTetri();
@@ -176,6 +177,20 @@ public class App {
 		ad.setLogin("Hercule");
 		ad.setPassword("disney");
 		jdao.save(ad);
+	}
+
+	static void testFAQ() {
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
+		
+		IFaqDAO fdao = myContext.getBean(IFaqDAO.class);
+		Faq f = new Faq ();
+		f.setQuestion("What are the keyboard controls for this game?");
+		f.setReponse("Arrow Keys – Move the Tetrimino\n" + 
+				"Rotate Clockwise – Up Arrow\n" + 
+				"Rotate Counter–clockwise – Z\n" + 
+				"Hard Drop – Space Bar\n" + 
+				"Pause – esc");
+		fdao.save(f);
 	}
 
 }
