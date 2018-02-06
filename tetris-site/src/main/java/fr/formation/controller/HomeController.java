@@ -22,7 +22,7 @@ public class HomeController {
 	// Méthode pour lui mapper deux paramètres en entrée
 	@GetMapping("")
 	public String home(Model model) {
-		model.addAttribute("utilisateur", new Utilisateur());
+		// model.addAttribute("utilisateur", new Utilisateur());
 		return "home";
 	}
 
