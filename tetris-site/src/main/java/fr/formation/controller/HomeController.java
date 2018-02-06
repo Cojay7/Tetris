@@ -21,19 +21,20 @@ public class HomeController {
 
 	// Méthode pour lui mapper deux paramètres en entrée
 	@GetMapping("")
-	public String home() {
+	public String home(Model model) {
+		model.addAttribute("utilisateur", new Utilisateur());
 		return "home";
 	}
 
 	@PostMapping("/connect")
 	public String editProduit(@Valid @ModelAttribute("utilisateur") Utilisateur utilisateur, BindingResult result,
-			@RequestParam("login") String loginUser, Model model) {
+			@RequestParam("login") String loginUser, @RequestParam("password") String mdpUser, Model model) {
 		
 		utilisateur.setLogin(loginUser);
-		
+		utilisateur.setLogin(mdpUser);
 		if (result.hasErrors()) {
 			
-			return "";
+			return "home";
 		}
 		
 		
