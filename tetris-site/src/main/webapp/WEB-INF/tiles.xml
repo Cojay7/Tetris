@@ -17,10 +17,11 @@
 		<put-attribute name="content" value="/WEB-INF/views/home.jsp" />
 	</definition>
 
-	<definition name="produit" extends="app.layout">
-		<put-attribute name="title" value="Produits" />
-		<put-attribute name="content" value="/WEB-INF/views/produit.jsp" />
+	<definition name="faq" extends="app.layout">
+		<put-attribute name="title" value="FAQ" />
+		<put-attribute name="content" value="/WEB-INF/views/faq.jsp" />
 	</definition>
+
 
 
 </tiles-definitions>
