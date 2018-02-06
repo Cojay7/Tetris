@@ -28,16 +28,12 @@ public class HomeController {
 
 	@PostMapping("/connect")
 	public String editProduit(@Valid @ModelAttribute("utilisateur") Utilisateur utilisateur, BindingResult result,
-			@RequestParam("login") String loginUser, @RequestParam("password") String mdpUser, Model model) {
-		
-		utilisateur.setLogin(loginUser);
-		utilisateur.setLogin(mdpUser);
+			@RequestParam("id") int idUser, Model model) {
+		utilisateur.setId(idUser);
 		if (result.hasErrors()) {
-			
 			return "home";
 		}
-		
-		
+
 		return "redirect:./";
 	}
 }
