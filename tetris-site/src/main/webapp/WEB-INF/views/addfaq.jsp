@@ -6,7 +6,7 @@
 	
 <tiles:insertDefinition name="app.layout">
 
-<tiles:putAttribute name="title" value="FAQ" />
+<tiles:putAttribute name="h1" value="FAQ" />
 
 	<tiles:putAttribute name="content">
 
