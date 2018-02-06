@@ -19,10 +19,11 @@ import fr.formation.utilisateur.Utilisateur;
 @RequestMapping("/home")
 public class HomeController {
 
-	// Méthode pour lui mapper deux paramètres en entrée
-	@GetMapping("")
-	public String home(Model model) {
-		// model.addAttribute("utilisateur", new Utilisateur());
+	@GetMapping(value = { "", "/{utilisateur}" })
+	public String home(@PathVariable(required = false) String utilisateur,
+			@RequestParam(required = false, defaultValue = "0") int idProduit, Model model) {
+		model.addAttribute("utilisateur", utilisateur);
+		model.addAttribute("idProduit", idProduit);
 		return "home";
 	}
 
