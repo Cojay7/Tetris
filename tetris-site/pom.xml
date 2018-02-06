@@ -26,6 +26,12 @@
 			<version>3.0.8</version>
 		</dependency>
 
+		<dependency>
+			<groupId>fr.formation</groupId>
+			<artifactId>tetris-dao</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 
 		<!-- JSON -->
 		<dependency>
