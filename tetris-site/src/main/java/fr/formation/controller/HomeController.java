@@ -70,8 +70,8 @@ public class HomeController {
 	}
 
 	@GetMapping(value = "/connected")
-	public String connected(Model model) {
-
+	public String connected(@ModelAttribute("statut") String statut, Model model) {
+		System.out.println(statut);
 		return "connected";
 	}
 }
