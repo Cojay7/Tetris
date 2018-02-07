@@ -19,6 +19,7 @@
 					<tr>
 						<td value = "Nom">${ tetrimino.nom }</td>
 						<td value = "Couleur">${ tetrimino.couleur }</td>
+						<td value = "Forme">${ tetrimino.forme_1rota }</td>
 						<td><a href="/tetris-site/tetrimino/edit?id=${tetrimino.id}"
 							class="btn btn-outline-success">Modifier</a></td>
 						<td><a

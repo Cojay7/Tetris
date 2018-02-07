@@ -21,27 +21,33 @@
 
 
 				</div>
+				<br>
 				<div class="form-group">
-					<label for="couleur">Couleur</label> <SELECT NAME="couleur"
+					<label for="couleur">Couleur</label> 
+					
+					 <SELECT NAME="couleur"
 						id="couleur" value="${tetrimino.couleur}">
 						<option value="-" label="--Please Select" />
-												
-						<OPTION VALUE="Rouge"
-							STYLE="background-color: #CC0000">
-				
-						<OPTION VALUE="Vert"
+						<OPTION VALUE="rouge"
+							STYLE="color: #FFFFFF; background-color: #CC0000">
+						<OPTION VALUE="vert"
 							STYLE="color: #FFFFFF; background-color: #336633">
-						<OPTION VALUE="Gris"
+						<OPTION VALUE="gris"
 							STYLE="color: #FFFFFF; background-color: #868486">
-						<OPTION VALUE="Bleu"
+						<OPTION VALUE="bleu" class="btn btn-primary"
 							STYLE="color: #FFFFFF; background-color: #336699">
-						<OPTION VALUE="Noir"
+						<OPTION VALUE="noir"
 							STYLE="color: #FFFFFF; background-color: #000000">
-					</select>
-
+					</select> </br>
 				</div>
 
-
+				<br>
+				<div class="form-group">
+					<label for="forme_1rota">Forme :</label> <input name="forme_1rota"
+						type="text" class="form-control" id="forme_1rota"
+						value="${tetrimino.forme_1rota}" placeholder="Forme">
+				</div>
+				</br>
 				<button type="submit" class="btn btn-primary">Envoyer</button>
 			</div>
 		</form:form>
