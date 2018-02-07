@@ -2,12 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <tiles:insertDefinition name="app.layout">
-	<tiles:putAttribute name="title" value="Bi1 venu" />
-	<tiles:putAttribute name="h1">Accueil</tiles:putAttribute>
+	<tiles:putAttribute name="h1" value="Connecté" />
 	<tiles:putAttribute name="content">
 
-		<p>oybgyguivbyiuhuonouh le contenu</p>
 
+		<p>Bi1 venu ${ login } (id = ${ utilisateur.id } statut = ${ statut }) </p>
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>
