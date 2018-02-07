@@ -40,7 +40,13 @@ public class HomeController {
 		return "home";
 	}
 
-	@PostMapping("")
+	@GetMapping("/connect")
+	public String connect(Model model) {
+
+		return "connect";
+	}
+
+	@PostMapping("/connect")
 	public String connect(@Valid @ModelAttribute("login") String login, BindingResult result,
 			@Valid @ModelAttribute("password") String password, BindingResult result2, Model model) {
 
@@ -50,21 +56,20 @@ public class HomeController {
 		if (j != null) {
 			model.addAttribute("utilisateur", daoJoueur.auth(login, password));
 			System.out.println(j);
-			return "connect";
+			return "connected";
 		} else if (a != null) {
 			model.addAttribute("utilisateur", daoAdmin.auth(login, password));
 			System.out.println(j);
-			return "connect";
+			return "connected";
 		} else {
 
-			return "home";
+			return "connect";
 		}
 	}
 
-	@GetMapping(value = "/connect")
-	public String connect(Model model) {
-		model.addAttribute("logins", daoUtilisateur.findAll());
+	@GetMapping(value = "/connected")
+	public String connected(Model model) {
 
-		return "connect";
+		return "connected";
 	}
 }
