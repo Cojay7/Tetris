@@ -14,7 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.formation.tetris_dao.IAdminDAO;
+import fr.formation.tetris_dao.IJoueurDAO;
 import fr.formation.tetris_dao.IUtilisateurDAO;
+import fr.formation.utilisateur.Admin;
+import fr.formation.utilisateur.Joueur;
 import fr.formation.utilisateur.Utilisateur;
 
 @Controller
@@ -24,6 +28,12 @@ public class HomeController {
 	@Autowired
 	private IUtilisateurDAO daoUtilisateur;
 
+	@Autowired
+	private IAdminDAO daoAdmin;
+
+	@Autowired
+	private IJoueurDAO daoJoueur;
+
 	@GetMapping(value = "")
 	public String home() {
 
@@ -31,14 +41,24 @@ public class HomeController {
 	}
 
 	@PostMapping("")
-	public String connect(@Valid @ModelAttribute("login") Utilisateur login, BindingResult result,
+	public String connect(@Valid @ModelAttribute("login") String login, BindingResult result,
 			@Valid @ModelAttribute("password") String password, BindingResult result2, Model model) {
 
-		if (result.hasErrors() || result2.hasErrors()) {
+		Joueur j = daoJoueur.auth(login, password);
+		Admin a = daoAdmin.auth(login, password);
+
+		if (j != null) {
+			model.addAttribute("utilisateur", daoJoueur.auth(login, password));
+			System.out.println(j);
+			return "connect";
+		} else if (a != null) {
+			model.addAttribute("utilisateur", daoAdmin.auth(login, password));
+			System.out.println(j);
+			return "connect";
+		} else {
+
 			return "home";
 		}
-
-		return "connect";
 	}
 
 	@GetMapping(value = "/connect")
