@@ -17,8 +17,8 @@
 
 				<c:forEach items="${tetriminos}" var="tetrimino">
 					<tr>
-						<td>${ tetrimino.nom }</td>
-						<td>${ tetrimino.couleur }</td>
+						<td value = "Nom">${ tetrimino.nom }</td>
+						<td value = "Couleur">${ tetrimino.couleur }</td>
 						<td><a href="/tetris-site/tetrimino/edit?id=${tetrimino.id}"
 							class="btn btn-outline-success">Modifier</a></td>
 						<td><a
