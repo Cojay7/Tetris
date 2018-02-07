@@ -12,29 +12,26 @@
 
 		<form:form method="post" modelAttribute="faq">
 			<div class="container">
-				<p>Ajouter ou modifier une FAQ</p>
+				<h4>Ajouter ou modifier une FAQ</h4>
 
 				<div class="form-group">
 					<label for="question">Question :</label> <input name="question"
 						type="text" class="form-control" id="question"
-						value="${faq.question }" placeholder="Question">
+						value="${faq.question}" placeholder="Question">
 
-					<form:errors path="question" element="div"
-						cssClass="alert alert-warning" />
 
 				</div>
 				<div class="form-group">
 					<label for="reponse">Réponse :</label> <input name="reponse"
 						type="text" class="form-control" id="reponse"
-						value="${faq.reponse }" placeholder="Reponse">
+						value="${faq.reponse }" placeholder="Réponse">
 
 
-					<form:errors path="reponse" element="div"
-						cssClass="alert alert-warning" />
+				
 				</div>
 
 				
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" class="btn btn-primary">Envoyer</button>
 			</div>
 		</form:form>
 	</tiles:putAttribute>

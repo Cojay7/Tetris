@@ -12,13 +12,13 @@
 
 		<div class="container">
 
-			<p>Ensemble des FAQ</p>
+			<h4>Ensemble des FAQ</h4>
 			<table class="table table-striped">
 
 				<c:forEach items="${faqs}" var="faq">
 					<tr>
 						<td>${ faq.question }</td>
-						<td>${ faq.reponse }€</td>
+						<td>${ faq.reponse }</td>
 						<td><a href="/tetris-site/faq/edit?id=${faq.id}"
 							class="btn btn-outline-success">Modifier</a></td>
 						<td><a

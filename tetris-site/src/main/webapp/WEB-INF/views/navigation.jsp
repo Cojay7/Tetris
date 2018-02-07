@@ -3,6 +3,17 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" href="/tetris-site/home">Accueil</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tetris-site/faq">FAQ</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tetris-site/tetrimino">Tetrimino</a>
+  </li>
+ 
+  
+</ul>
 
-<a href="/tetris-site/home" class="btn btn-primary">Accueil </a>
-<a href="/tetris-site/faq" class="btn btn-primary">FAQ </a>
