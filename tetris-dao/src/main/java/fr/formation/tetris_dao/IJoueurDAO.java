@@ -4,10 +4,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import fr.formation.utilisateur.Joueur;
+import fr.formation.utilisateur.Utilisateur;
 
 public interface IJoueurDAO extends JpaRepository<Joueur, Integer>{
 
 	@Query("from Joueur j where j.login = :login and j.password = :password")
 	public Joueur auth(@Param("login") String login, @Param("password") String password);
+	
+//	@Query("from Joueur j where j.login = :login and j.password = :password")
+//	public Joueur auth(@Param("login") Utilisateur login, @Param("password") String password);
 	
 }
