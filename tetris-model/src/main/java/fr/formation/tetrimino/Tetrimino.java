@@ -12,6 +12,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import java.util.*;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -24,6 +26,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "tetrimino")
 @Inheritance(strategy = InheritanceType.JOINED)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Tetrimino implements Serializable {
 
 	@Id
