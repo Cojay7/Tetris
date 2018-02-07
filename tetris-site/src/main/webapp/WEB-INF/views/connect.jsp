@@ -7,7 +7,7 @@
 	<tiles:putAttribute name="content">
 
 
-		<p>Bi1 venu ${ utilisateur }</p>
+		<p>Bi1 venu ${ login }</p>
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>
