@@ -5,7 +5,7 @@
 	<tiles:putAttribute name="h1" value="Connexion" />
 	<tiles:putAttribute name="content">
 
-		<p>oybgyguivbyiuhuonouh le contenu</p>
+		<h4>Veuillez vous connecter</h4>
 
 		<form method="POST">
 			<div class="container">
