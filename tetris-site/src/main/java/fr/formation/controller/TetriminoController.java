@@ -25,8 +25,6 @@ public class TetriminoController {
 	@GetMapping("")
 	public String liste(Model model,Tetrimino tetrimino) {
 		model.addAttribute("tetriminos", daoTetri.findAll());
-		model.addAttribute("forme", tetrimino.getForme_1rota().split("/"));
-	
 		return "tetrimino";
 	}
 

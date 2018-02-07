@@ -17,14 +17,25 @@
 
 				<c:forEach items="${tetriminos}" var="tetrimino">
 					<tr>
-						<td value = "Nom">${ tetrimino.nom }</td>
-						<td value = "Couleur">${ tetrimino.couleur }</td>
-						<%-- <td value = "Forme">${ tetrimino.forme_1rota }</td> --%>
+						<td value="Nom">${ tetrimino.nom }</td>
+						<td value="Couleur">${ tetrimino.couleur }</td>
+
 						<td>
-						<c:forEach items="${tetrimino.forme_1rota}" var="tetrimino">
-						<%-- <a>${ forme }></a> --%>
-						
-						</c:forEach>
+							<table>
+								<c:forTokens items="${tetrimino.forme_1rota}" var="ligne"
+									delims="/">
+									<tr>
+										<c:forTokens items="${ligne}" var="colonn" delims=",">
+											<c:if test="${colonn==1 }">
+												<td class="bg-primary"></td>
+											</c:if>
+											<c:if test="${colonn==0}">
+												<td class="table-light"></td>
+											</c:if>
+											<%-- <c:out value="${colonn}" /> --%>
+										</c:forTokens>
+								</c:forTokens>
+							</table>
 						</td>
 						<td><a href="/tetris-site/tetrimino/edit?id=${tetrimino.id}"
 							class="btn btn-outline-success">Modifier</a></td>
