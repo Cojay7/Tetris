@@ -6,7 +6,7 @@
 	<tiles:putAttribute name="content">
 
 
-		<p>Bi1 venu ${ login }</p>
+		<p>Bi1 venu ${ login } (id = ${ utilisateur.id } statut = ${ statut }) </p>
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>

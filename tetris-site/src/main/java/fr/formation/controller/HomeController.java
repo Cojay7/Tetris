@@ -55,11 +55,13 @@ public class HomeController {
 
 		if (j != null) {
 			model.addAttribute("utilisateur", daoJoueur.auth(login, password));
+			model.addAttribute("statut", j.getClass());
 			System.out.println(j);
 			return "connected";
 		} else if (a != null) {
 			model.addAttribute("utilisateur", daoAdmin.auth(login, password));
-			System.out.println(j);
+			model.addAttribute("statut", a.getClass());
+			System.out.println(a);
 			return "connected";
 		} else {
 
