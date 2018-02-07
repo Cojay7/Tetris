@@ -14,21 +14,24 @@
 
 			<h4>Ensemble des FAQ</h4>
 			<table class="table table-striped">
-
+				<tr>
+					<th>Question</th>
+					<th>Réponse</th>
+					<th>Option</th>
+				</tr>
 				<c:forEach items="${faqs}" var="faq">
 					<tr>
 						<td>${ faq.question }</td>
 						<td>${ faq.reponse }</td>
 						<td><a href="/tetris-site/faq/edit?id=${faq.id}"
-							class="btn btn-outline-success">Modifier</a></td>
-						<td><a
-							href="/tetris-site/faq/delete?id=${faq.id}"
+							class="btn btn-outline-success">Modifier</a> <br/>
+						<td>	<a href="/tetris-site/faq/delete?id=${faq.id}"
 							class="btn btn-outline-danger">Supprimer</a></td>
 					</tr>
 				</c:forEach>
 
 			</table>
-			<a href="/tetris-site/faq/add" class="btn btn-outline-primary">Ajout</a>
+			<a href="/tetris-site/faq/add" class="btn btn-outline-primary btn-lg">Ajout</a>
 
 		</div>
 

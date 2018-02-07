@@ -63,7 +63,7 @@
 						value="${tetrimino.forme_1rota}" placeholder="Forme">
 				</div>
 				</br>
-				<button type="submit" class="btn btn-primary">Envoyer</button>
+				<button type="submit" class="btn btn-primary btn-lg">Envoyer</button>
 			</div>
 		</form:form>
 	</tiles:putAttribute>

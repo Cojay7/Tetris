@@ -14,8 +14,15 @@
 
 			<h4>Liste des tetriminos</h4>
 			<table class="table table-striped">
-
+				<tr>
+					<th>Nom</th>
+					<th>Couleur</th>
+					<th>Forme</th>
+					<th>Option</th>
+					<th>Etat</th>
+				</tr>
 				<c:forEach items="${tetriminos}" var="tetrimino">
+
 					<tr>
 						<td value="Nom">${ tetrimino.nom }</td>
 						<td value="Couleur">${ tetrimino.couleur }</td>
@@ -38,15 +45,20 @@
 							</table>
 						</td>
 						<td><a href="/tetris-site/tetrimino/edit?id=${tetrimino.id}"
-							class="btn btn-outline-success">Modifier</a></td>
-						<td><a
+						
+							class="btn btn-outline-success">Modifier</a>
+						
+						<a
 							href="/tetris-site/tetrimino/delete?id=${tetrimino.id}"
 							class="btn btn-outline-danger">Supprimer</a></td>
+						<td><a
+							href="/tetris-site/tetrimino/activ?id=${tetrimino.id}"
+							class="btn btn-warning">Activer</a></td>
 					</tr>
 				</c:forEach>
 
 			</table>
-			<a href="/tetris-site/tetrimino/add" class="btn btn-outline-primary">Ajout</a>
+			<a href="/tetris-site/tetrimino/add" class="btn btn-outline-primary btn-lg">Ajout</a>
 
 		</div>
 
