@@ -46,13 +46,13 @@ public class FAQController {
 	}
 	
 	@GetMapping("/edit")
-	public String editFaq(Model model) {
-		model.addAttribute("faq", new Faq());
+	public String getFaq(@RequestParam("id") int idFaq, Model model) {
+		model.addAttribute("faq",daoF.findById(idFaq).get()); 
 		return "addfaq";
 	}
 	
 	@PostMapping("/edit")
-	public String editFa(@Valid @ModelAttribute("faq") Faq faq, BindingResult result,
+	public String editFaq(@Valid @ModelAttribute("faq") Faq faq, BindingResult result,
 			@RequestParam("id") int idFaq, Model model) {
 		faq.setId(idFaq);
 	

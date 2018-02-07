@@ -13,5 +13,7 @@ public interface IUtilisateurDAO extends JpaRepository<Utilisateur, Integer>{
 //	@Query("from Joueur j where j.login = :login and j.password = :password")
 //	public Joueur auth(@Param("login") String login, @Param("password") String password);
 	
-	
+	//Pour reconnaitre si un utilisateur est un administrateur
+//	@Query("from Utilisateur u left join fetch u.admin a where u.id = :id")
+//	public Utilisateur findAdmin(@Param("id") int id);
 }
