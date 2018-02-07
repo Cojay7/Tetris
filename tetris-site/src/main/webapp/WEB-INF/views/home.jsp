@@ -8,7 +8,7 @@
 
 		<h4>Règles du jeu</h4>
 		
-<p>Le jeu est basé sur le jeu classique TETRIS. Le but est de placer des formes (7 formes cubiques différentes) qui descendent du haut vers la bas d'un tableau pour en former des lignes horizontales pleines. Dès qu'elle est pleine, la ligne est détruite et tous les cubes au-dessus de la ligne descendent d'une rangée.
+<h6><em>Le jeu est basé sur le jeu classique TETRIS. Le but est de placer des formes (7 formes cubiques différentes) qui descendent du haut vers la bas d'un tableau pour en former des lignes horizontales pleines. Dès qu'elle est pleine, la ligne est détruite et tous les cubes au-dessus de la ligne descendent d'une rangée.
 
 Les touches de directions (flèches) sont utilisées pour le déplacement et la barre d'espacement permet d'accélérer la descente des pièces. Les flèches droite et gauche pour contrôler horizontalement la forme qui descend. Les flèches du haut et bas pour contrôler la rotation de la forme.
 
@@ -21,7 +21,7 @@ Attribution des points :
 
 100 points sont attribués lorsqu'une ligne est complétée.
 
-Bonne partie !! </p>
+Bonne partie !! </em></h6>
 
 
 	</tiles:putAttribute>
