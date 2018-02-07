@@ -2,6 +2,7 @@ package fr.formation.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,28 +14,37 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.formation.tetris_dao.IUtilisateurDAO;
 import fr.formation.utilisateur.Utilisateur;
 
 @Controller
 @RequestMapping("/home")
 public class HomeController {
 
-	@GetMapping(value = { "", "/{utilisateur}" })
-	public String home(@PathVariable(required = false) String utilisateur,
-			@RequestParam(required = false, defaultValue = "0") int idProduit, Model model) {
-		model.addAttribute("utilisateur", utilisateur);
-		model.addAttribute("idProduit", idProduit);
+	@Autowired
+	private IUtilisateurDAO daoUtilisateur;
+
+	@GetMapping(value = "")
+	public String home() {
+
 		return "home";
 	}
 
-	@PostMapping("/connect")
-	public String editProduit(@Valid @ModelAttribute("utilisateur") Utilisateur utilisateur, BindingResult result,
-			@RequestParam("id") int idUser, Model model) {
-		utilisateur.setId(idUser);
-		if (result.hasErrors()) {
+	@PostMapping("")
+	public String connect(@Valid @ModelAttribute("login") Utilisateur login, BindingResult result,
+			@Valid @ModelAttribute("password") String password, BindingResult result2, Model model) {
+
+		if (result.hasErrors() || result2.hasErrors()) {
 			return "home";
 		}
 
-		return "redirect:./";
+		return "connect";
+	}
+
+	@GetMapping(value = "/connect")
+	public String connect(Model model) {
+		model.addAttribute("logins", daoUtilisateur.findAll());
+
+		return "connect";
 	}
 }
