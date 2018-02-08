@@ -1,0 +1,25 @@
+input[type="checkbox"].check+label {
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	background-color: white;
+	margin-right: -7px;
+	margin-bottom: -12px;
+}
+
+input[type="checkbox"].check {
+	display: none;
+}
+
+input[type="checkbox"].check:checked+label {
+	background: #e2b3b3;
+}
+
+input[type="checkbox"].check+label:hover {
+	background-color: #bcbaba;
+}
+
+.table {
+	cellspacing="0" ;
+	cellpadding="0";
+}

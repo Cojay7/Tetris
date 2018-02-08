@@ -7,6 +7,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="/tetris-site/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/tetris-site/css/tetrim.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <base href="${ pageContext.request.contextPath }">
 </head>

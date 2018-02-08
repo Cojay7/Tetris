@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.formation.exception.FaqValidationException;
 import fr.formation.tetris_dao.IFaqDAO;
 import fr.formation.tetris_model_faq.Faq;
 import fr.formation.utilisateur.Utilisateur;

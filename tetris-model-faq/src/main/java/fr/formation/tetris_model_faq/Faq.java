@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "faq")
@@ -15,10 +16,10 @@ public class Faq {
 	@Column(name = "FAQ_ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
+	@NotEmpty(message = "La rédaction de la question est obligatoire")
 	@Column(name = "FAQ_QUESTION", columnDefinition = "VARCHAR(1000)")
 	private String question;
-
+	@NotEmpty(message = "La rédaction de la réponse est obligatoire")
 	@Column(name = "FAQ_REPONSE", columnDefinition = "VARCHAR(1500)")
 	private String reponse;
 

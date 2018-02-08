@@ -28,7 +28,7 @@
 						<td value="Couleur">${ tetrimino.couleur }</td>
 
 						<td>
-							<table cellspacing="0" cellpadding="0">
+							<table class="table table-bordered" style= "height: 50px;width: 50px">
 								<c:forTokens items="${tetrimino.forme_1rota}" var="ligne"
 									delims="/">
 									<tr>

@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
 import java.util.*;
 
 import org.hibernate.annotations.Cache;
@@ -33,13 +35,13 @@ public class Tetrimino implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "TET_ID")
 	private int id;
-
+	@NotEmpty(message = "L'attribution d'un nom est obligatoire")
 	@Column(name = "TET_NOM")
 	private String nom;
 
 	@Column(name = "TET_COULEUR")
 	private String couleur;
-
+	@NotEmpty(message = "La sélection d'une forme est obligatoire")
 	@Column(name = "TET_FORME_1ROTA")
 	private String forme_1rota;
 
