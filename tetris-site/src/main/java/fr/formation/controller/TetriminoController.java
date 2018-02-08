@@ -23,7 +23,7 @@ public class TetriminoController {
 	private ITetriminoDAO daoTetri;
 
 	@GetMapping("")
-	public String liste(Model model,Tetrimino tetrimino) {
+	public String liste(Model model, Tetrimino tetrimino) {
 		model.addAttribute("tetriminos", daoTetri.findAll());
 		return "tetrimino";
 	}
@@ -31,6 +31,8 @@ public class TetriminoController {
 	@GetMapping("/add")
 	public String addTetri(Model model) {
 		model.addAttribute("tetrimino", new Tetrimino());
+		model.addAttribute("tailleY", 4);
+		model.addAttribute("tailleX", 4);
 		return "addtetrimino";
 	}
 

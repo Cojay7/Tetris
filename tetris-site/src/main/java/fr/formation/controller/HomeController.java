@@ -1,5 +1,6 @@
 package fr.formation.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,7 @@ public class HomeController {
 
 	@PostMapping("/connect")
 	public String connect(@Valid @ModelAttribute("login") String login, BindingResult result,
-			@Valid @ModelAttribute("password") String password, BindingResult result2, Model model) {
+			@Valid @ModelAttribute("password") String password, BindingResult result2, HttpSession req, Model model) {
 
 		Joueur j = daoJoueur.auth(login, password);
 		Admin a = daoAdmin.auth(login, password);

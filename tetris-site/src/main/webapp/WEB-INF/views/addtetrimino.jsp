@@ -23,36 +23,34 @@
 				</div>
 				<br>
 				<div class="form-group">
-					<label for="couleur">Couleur</label> 
-					
-					 <SELECT NAME="couleur"
+					<label for="couleur">Couleur</label> <SELECT NAME="couleur"
 						id="couleur" value="${tetrimino.couleur}">
 						<c:if test="${tetrimino.couleur != null}">
-						<option value= "${tetrimino.couleur}" label="${tetrimino.couleur}" />
-						<OPTION VALUE="rouge"
-							STYLE="color: #FFFFFF; background-color: #CC0000">
-						<OPTION VALUE="vert"
-							STYLE="color: #FFFFFF; background-color: #336633">
-						<OPTION VALUE="gris"
-							STYLE="color: #FFFFFF; background-color: #868486">
-						<OPTION VALUE="bleu" class="btn btn-primary"
-							STYLE="color: #FFFFFF; background-color: #336699">
-						<OPTION VALUE="noir"
-							STYLE="color: #FFFFFF; background-color: #000000">
+							<option value="${tetrimino.couleur}" label="${tetrimino.couleur}" />
+							<OPTION VALUE="rouge"
+								STYLE="color: #FFFFFF; background-color: #CC0000">
+							<OPTION VALUE="vert"
+								STYLE="color: #FFFFFF; background-color: #336633">
+							<OPTION VALUE="gris"
+								STYLE="color: #FFFFFF; background-color: #868486">
+							<OPTION VALUE="bleu" class="btn btn-primary"
+								STYLE="color: #FFFFFF; background-color: #336699">
+							<OPTION VALUE="noir"
+								STYLE="color: #FFFFFF; background-color: #000000">
 						</c:if>
 						<c:if test="${tetrimino.couleur == null}">
-						<option value="-" label="--Please Select" />
-						<OPTION VALUE="rouge"
-							STYLE="color: #FFFFFF; background-color: #CC0000">
-						<OPTION VALUE="vert"
-							STYLE="color: #FFFFFF; background-color: #336633">
-						<OPTION VALUE="gris"
-							STYLE="color: #FFFFFF; background-color: #868486">
-						<OPTION VALUE="bleu" class="btn btn-primary"
-							STYLE="color: #FFFFFF; background-color: #336699">
-						<OPTION VALUE="noir"
-							STYLE="color: #FFFFFF; background-color: #000000">
-							</c:if>
+							<option value="-" label="--Please Select" />
+							<OPTION VALUE="rouge"
+								STYLE="color: #FFFFFF; background-color: #CC0000">
+							<OPTION VALUE="vert"
+								STYLE="color: #FFFFFF; background-color: #336633">
+							<OPTION VALUE="gris"
+								STYLE="color: #FFFFFF; background-color: #868486">
+							<OPTION VALUE="bleu" class="btn btn-primary"
+								STYLE="color: #FFFFFF; background-color: #336699">
+							<OPTION VALUE="noir"
+								STYLE="color: #FFFFFF; background-color: #000000">
+						</c:if>
 					</select> </br>
 				</div>
 
@@ -62,6 +60,7 @@
 						type="text" class="form-control" id="forme_1rota"
 						value="${tetrimino.forme_1rota}" placeholder="Forme">
 				</div>
+
 				</br>
 				<button type="submit" class="btn btn-primary btn-lg">Envoyer</button>
 			</div>
