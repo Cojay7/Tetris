@@ -49,7 +49,7 @@ public class HomeController {
 
 	@PostMapping("/connect")
 	public String connect(@Valid @ModelAttribute("login") String login, BindingResult result,
-			@Valid @ModelAttribute("password") String password, BindingResult result2, HttpSession req, Model model) {
+			@Valid @ModelAttribute("password") String password, BindingResult result2, HttpSession ses, Model model) {
 
 		Joueur j = daoJoueur.auth(login, password);
 		Admin a = daoAdmin.auth(login, password);
@@ -57,18 +57,27 @@ public class HomeController {
 		if (j != null) {
 			model.addAttribute("utilisateur", daoJoueur.auth(login, password));
 			model.addAttribute("statut", j.getClass());
-			System.out.println(j);
+			ses.setAttribute("login", login);
+			// System.out.println(j);
 			return "connected";
 		} else if (a != null) {
 			model.addAttribute("utilisateur", daoAdmin.auth(login, password));
 			model.addAttribute("statut", a.getClass());
-			System.out.println(a);
+			ses.setAttribute("login", login);
+			// System.out.println(a);
 			return "connected";
 		} else {
 
 			return "connect";
 		}
 	}
+	
+    @GetMapping("/deconnect")
+    public String deconnect(HttpSession ses) {
+        
+        ses.invalidate();
+        return "home";
+    }
 
 	@GetMapping(value = "/connected")
 	public String connected(@ModelAttribute("statut") String statut, Model model) {
