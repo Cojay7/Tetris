@@ -30,13 +30,13 @@ public class ScoreRestController {
 	@Autowired
 	private IPartieDAO daoPartie;
 
-	@GetMapping("")
-	public List<Partie> findAll() {
-		return this.daoPartie.findAll();
-	}
+//	@GetMapping("")
+//	public List<Partie> findAll() {
+//		return this.daoPartie.findAll();
+//	}
 	
 	@GetMapping("/{id}")
-	public int findById(@RequestParam("id") int id){
+	public int findById(@PathVariable("id") int id){
 		return this.daoPartie.findById(id).get().getScore();
 	}
 }
