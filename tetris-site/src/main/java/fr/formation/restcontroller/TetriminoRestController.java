@@ -1,4 +1,4 @@
-package fr.formation.controller;
+package fr.formation.restcontroller;
 
 import java.util.List;
 
@@ -23,18 +23,18 @@ import fr.formation.tetris_dao.ITetriminoDAO;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/tetrimino2")
+@RequestMapping("/tetrimino")
 @Transactional
 public class TetriminoRestController {
 
 	@Autowired
 	private ITetriminoDAO daoTetri;
 
+
 	@GetMapping("")
 	public List<Tetrimino> findAll() {
 		return this.daoTetri.findAll();
 	}
-
 
 	
 	

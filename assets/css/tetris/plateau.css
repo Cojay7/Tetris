@@ -1,0 +1,9 @@
+.board {
+	position: relative;
+	float: left;
+	width: 250px;
+	height: 500px;
+
+	border: solid 1px black;
+	background: #E0F2F1;
+}

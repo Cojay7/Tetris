@@ -23,7 +23,7 @@ public class SecurityFilter implements Filter {
 		//Si pas connecté
 		if (req.getSession().getAttribute("login") == null) {
 			//Si ni "assets" ni "page de login"
-			if (!myPath.startsWith("/assets") && !myPath.startsWith("/home")) {
+			if (!myPath.startsWith("/assets") && !myPath.startsWith("/home") && !myPath.startsWith("/api")) {
 				resp.sendRedirect(myProjectPath + "/home");
 				return;
 			}

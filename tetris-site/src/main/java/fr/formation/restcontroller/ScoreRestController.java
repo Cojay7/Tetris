@@ -1,4 +1,4 @@
-package fr.formation.controller;
+package fr.formation.restcontroller;
 import java.util.List;
 
 import javax.validation.Valid;

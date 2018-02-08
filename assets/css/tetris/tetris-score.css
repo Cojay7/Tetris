@@ -1,0 +1,34 @@
+.score {
+	position: relative;
+	float: left;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	min-width: 200px;
+	min-height: 100px;
+
+	background: #F5F5F5;
+	border: solid 1px black;
+
+	margin-left: 20px;
+
+	font-family: "Orbitron";
+	color: black;
+	font-size: 60px;
+}
+
+.score > span {
+	font-size: 60px;
+}
+
+.score > .nexts {
+	width: 100%;
+	height: 100%;
+}
+
+
+.score > small {
+	font-size: 12px;
+	padding: 5px;
+}
