@@ -18,7 +18,8 @@
 					<label for="nom">Nom :</label> <input name="nom" type="text"
 						class="form-control" id="nom" value="${tetrimino.nom}"
 						placeholder="Nom">
-
+					<form:errors path="nom" element="div"
+						cssClass="alert alert-warning" />
 
 				</div>
 				<br>
@@ -26,14 +27,12 @@
 					<label for="couleur">Couleur</label>
 					<c:if test="${tetrimino.couleur != null}">
 						<input type="color" class="bfh-colorpicker"
-							value="${tetrimino.couleur}" name="couleur"
-							label="${tetrimino.couleur}">
+							value="${tetrimino.couleur}" name="couleur">
 
 					</c:if>
 					<c:if test="${tetrimino.couleur == null}">
 						<input type="color" class="bfh-colorpicker"
-							value="${tetrimino.couleur}" name="couleur"
-							label="${tetrimino.couleur}">
+							value="${tetrimino.couleur}" name="couleur">
 
 					</c:if>
 					</br>
@@ -41,17 +40,22 @@
 
 				<br>
 				<div class="form-group">
-					<label>Forme : </label> <br />
+					<label for="forme">Forme : </label> <br />
 					<table>
-						<c:forEach var="a" begin="1" end="5" step="1">
+						<c:forEach var="a" begin="0" end="4" step="1">
 							<tr>
-								<c:forEach var="b" begin="1" end="5" step="1">
-									<td><input type="checkbox" id="coord" name="${a}.${b}"
-										style="height: 20px; width: 20px"></td>
+								<c:forEach var="b" begin="0" end="4" step="1">
+									<td><input class="check" type="checkbox" id="${a}.${b}"
+										name="${a}.${b}"<c:if test="${matrice[a][b] == 1}" >checked</c:if>> <label
+										for="${a}.${b}"></label></td>
 								</c:forEach>
 							</tr>
 						</c:forEach>
 					</table>
+					<br />
+					<form:errors path="forme_1rota" element="div"
+						cssClass="alert alert-warning" />
+
 				</div>
 
 				</br>

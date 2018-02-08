@@ -31,14 +31,14 @@ public class TetriminoController {
 	}
 
 	// A ajouter si on veut que l'administrateur modifie les tailles des tetriminos
-//	@GetMapping("/taille")
-//	public String tailleTetri(Model model) {
-//		model.addAttribute("tetrimino", new Tetrimino());
-//		return "tailltetrimino";
-//	}
+	// @GetMapping("/taille")
+	// public String tailleTetri(Model model) {
+	// model.addAttribute("tetrimino", new Tetrimino());
+	// return "tailltetrimino";
+	// }
 
-//	, @RequestParam int taille
-//	model.addAttribute("taille", taille);
+	// , @RequestParam int taille
+	// model.addAttribute("taille", taille);
 	@GetMapping("/add")
 	public String addTetri(Model model) {
 		model.addAttribute("tetrimino", new Tetrimino());
@@ -52,7 +52,7 @@ public class TetriminoController {
 			return "addtetrimino";
 		}
 		String res = "";
-		int x =5;
+		int x = 4;
 		for (int i = 1; i <= x; i++) {
 			for (int j = 1; j <= x; j++) {
 				if (request.getParameter(i + "." + j) == null) {
@@ -74,10 +74,24 @@ public class TetriminoController {
 	@GetMapping("/edit")
 	public String getTetri(@RequestParam("id") int idTetrimino, @ModelAttribute("tetrimino") Tetrimino tetrimino,
 			Model model, HttpServletRequest request) {
-		
+
+		String res = "";
 		model.addAttribute("tetrimino", daoTetri.findById(idTetrimino).get());
 		tetrimino.getCouleur();
-		tetrimino.getForme_1rota();
+		Tetrimino tetri = daoTetri.findById(idTetrimino).get();
+		String test = tetri.getForme_1rota();
+		String[] tab = test.split("/");
+		String[][] matrice = new String[tab.length][tab.length];
+
+		for (int i = 0; i < tab.length; i++) {
+			matrice[i] = tab[i].split(",");
+		}
+		
+	
+		model.addAttribute("matrice", matrice);
+
+
+
 		return "addtetrimino";
 	}
 
@@ -88,7 +102,7 @@ public class TetriminoController {
 			return "addtetrimino";
 		}
 		String res = "";
-		int x = 5;
+		int x = 4;
 		for (int i = 1; i <= x; i++) {
 			for (int j = 1; j <= x; j++) {
 				if (request.getParameter(i + "." + j) == null) {
