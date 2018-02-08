@@ -35,15 +35,9 @@ public class TetriminoRestController {
 		return this.daoTetri.findAll();
 	}
 
-	@GetMapping("/taille")
-	public String tailleTetri(Model model) {
-		model.addAttribute("tetrimino", new Tetrimino());
-		return "tailltetrimino";
-	}
-
 	@GetMapping("/add")
-	public String addTetri(Model model, @RequestParam int taille) {
-		model.addAttribute("taille", taille);
+	public String addTetri(Model model) {
+
 		model.addAttribute("tetrimino", new Tetrimino());
 		return "addtetrimino";
 	}
