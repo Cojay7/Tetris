@@ -58,7 +58,7 @@
 				</c:forEach>
 
 			</table>
-			<a href="/tetris-site/tetrimino/add" class="btn btn-outline-primary btn-lg">Ajout</a>
+			<a href="/tetris-site/tetrimino/taille" class="btn btn-outline-primary btn-lg">Ajout</a>
 
 		</div>
 

@@ -28,11 +28,22 @@ public class TetriminoController {
 		return "tetrimino";
 	}
 
-	@GetMapping("/add")
-	public String addTetri(Model model) {
+	@GetMapping("/taille")
+	public String tailleTetri(Model model) {
 		model.addAttribute("tetrimino", new Tetrimino());
-		model.addAttribute("tailleY", 4);
-		model.addAttribute("tailleX", 4);
+		return "tailltetrimino";
+	}
+	
+//	@PostMapping("/taille")
+//	public String saveTailleTetri(Model model) {
+//		model.addAttribute("tetrimino", new Tetrimino());
+//		return "addtetrimino";
+//	}
+	
+	@GetMapping("/add")
+	public String addTetri(Model model,  @RequestParam int taille) {
+		model.addAttribute("taille", taille);
+		model.addAttribute("tetrimino", new Tetrimino());
 		return "addtetrimino";
 	}
 

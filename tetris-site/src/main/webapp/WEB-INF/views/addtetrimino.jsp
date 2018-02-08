@@ -23,10 +23,12 @@
 				</div>
 				<br>
 				<div class="form-group">
-					<label for="couleur">Couleur</label> <SELECT NAME="couleur"
-						id="couleur" value="${tetrimino.couleur}">
+					<label for="couleur">Couleur</label> 
 						<c:if test="${tetrimino.couleur != null}">
-							<option value="${tetrimino.couleur}" label="${tetrimino.couleur}" />
+						<input type = "color" class="bfh-colorpicker">
+			<%-- 			<SELECT NAME="couleur"
+						id="couleur" value="${tetrimino.couleur}"> --%>
+							<%-- <option value="${tetrimino.couleur}" label="${tetrimino.couleur}" />
 							<OPTION VALUE="rouge"
 								STYLE="color: #FFFFFF; background-color: #CC0000">
 							<OPTION VALUE="vert"
@@ -36,10 +38,11 @@
 							<OPTION VALUE="bleu" class="btn btn-primary"
 								STYLE="color: #FFFFFF; background-color: #336699">
 							<OPTION VALUE="noir"
-								STYLE="color: #FFFFFF; background-color: #000000">
+								STYLE="color: #FFFFFF; background-color: #000000"> --%>
 						</c:if>
 						<c:if test="${tetrimino.couleur == null}">
-							<option value="-" label="--Please Select" />
+						<input type = "color" class="bfh-colorpicker">
+							<!-- <option value="-" label="--Please Select" />
 							<OPTION VALUE="rouge"
 								STYLE="color: #FFFFFF; background-color: #CC0000">
 							<OPTION VALUE="vert"
@@ -49,16 +52,25 @@
 							<OPTION VALUE="bleu" class="btn btn-primary"
 								STYLE="color: #FFFFFF; background-color: #336699">
 							<OPTION VALUE="noir"
-								STYLE="color: #FFFFFF; background-color: #000000">
+								STYLE="color: #FFFFFF; background-color: #000000"> -->
+								<!-- </select> -->
 						</c:if>
-					</select> </br>
+					 </br>
 				</div>
 
 				<br>
 				<div class="form-group">
-					<label for="forme_1rota">Forme :</label> <input name="forme_1rota"
-						type="text" class="form-control" id="forme_1rota"
-						value="${tetrimino.forme_1rota}" placeholder="Forme">
+				<label >Forme : </label>
+				<br/>
+					<table>
+						<c:forEach var="i" begin="1" end="${ taille }">
+							<tr>
+								<c:forEach var="j" begin="1" end="${taille}">
+									<td><input type="checkbox" id="${i}.${j}" name="${i}.${j}"></td>
+								</c:forEach>
+							</tr>
+						</c:forEach>
+					</table>
 				</div>
 
 				</br>
