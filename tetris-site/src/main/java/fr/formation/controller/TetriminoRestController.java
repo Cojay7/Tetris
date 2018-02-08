@@ -35,34 +35,7 @@ public class TetriminoRestController {
 		return this.daoTetri.findAll();
 	}
 
-	@GetMapping("/add")
-	public String addTetri(Model model) {
 
-		model.addAttribute("tetrimino", new Tetrimino());
-		return "addtetrimino";
-	}
-
-	@PostMapping("/add")
-	public String saveTetri(@Valid @ModelAttribute("tetrimino") Tetrimino tetrimino, BindingResult result,
-			Model model) {
-		if (result.hasErrors()) {
-			return "addtetrimino";
-		}
-		daoTetri.save(tetrimino);
-		return "redirect:./";
-	}
-
-	@GetMapping("/edit")
-	public String getFaq(@RequestParam("id") int idTetrimino, Model model) {
-		model.addAttribute("tetrimino", daoTetri.findById(idTetrimino).get());
-		return "addtetrimino";
-	}
-
-	@GetMapping("/delete")
-	public String delete(@RequestParam("id") int idTetrimino) {
-		daoTetri.deleteById(idTetrimino);
-		return "redirect:./";
-
-	}
-
+	
+	
 }
