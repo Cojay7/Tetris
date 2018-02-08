@@ -12,6 +12,8 @@
 	</li>
 	<li class="nav-item"><a class="nav-link"
 		href="/tetris-site/tetrimino">Tetrimino</a></li>
+	<li class="nav-item"><a class="nav-link"
+		href="/tetris-site/home/deconnect">Déconnexion</a></li>
 
 
 
