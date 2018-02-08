@@ -1,5 +1,7 @@
 package fr.formation.controller;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,39 +30,81 @@ public class TetriminoController {
 		return "tetrimino";
 	}
 
-	@GetMapping("/taille")
-	public String tailleTetri(Model model) {
-		model.addAttribute("tetrimino", new Tetrimino());
-		return "tailltetrimino";
-	}
-	
-//	@PostMapping("/taille")
-//	public String saveTailleTetri(Model model) {
+	// A ajouter si on veut que l'administrateur modifie les tailles des tetriminos
+//	@GetMapping("/taille")
+//	public String tailleTetri(Model model) {
 //		model.addAttribute("tetrimino", new Tetrimino());
-//		return "addtetrimino";
+//		return "tailltetrimino";
 //	}
-	
+
+//	, @RequestParam int taille
+//	model.addAttribute("taille", taille);
 	@GetMapping("/add")
-	public String addTetri(Model model,  @RequestParam int taille) {
-		model.addAttribute("taille", taille);
+	public String addTetri(Model model) {
 		model.addAttribute("tetrimino", new Tetrimino());
 		return "addtetrimino";
 	}
 
 	@PostMapping("/add")
-	public String saveTetri(@Valid @ModelAttribute("tetrimino") Tetrimino tetrimino, BindingResult result,
-			Model model) {
+	public String saveTetri(@Valid @ModelAttribute("tetrimino") Tetrimino tetrimino, BindingResult result, Model model,
+			HttpServletRequest request) {
 		if (result.hasErrors()) {
 			return "addtetrimino";
 		}
+		String res = "";
+		int x =5;
+		for (int i = 1; i <= x; i++) {
+			for (int j = 1; j <= x; j++) {
+				if (request.getParameter(i + "." + j) == null) {
+					res += "0,";
+				} else
+					res += "1,";
+
+			}
+			res += "/";
+		}
+		tetrimino.setForme_1rota(res);
+		tetrimino.setForme_2rota(tetrimino.rotation(tetrimino.getForme_1rota()));
+		tetrimino.setForme_3rota(tetrimino.rotation(tetrimino.getForme_2rota()));
+		tetrimino.setForme_4rota(tetrimino.rotation(tetrimino.getForme_3rota()));
 		daoTetri.save(tetrimino);
 		return "redirect:./";
 	}
 
 	@GetMapping("/edit")
-	public String getFaq(@RequestParam("id") int idTetrimino, Model model) {
+	public String getTetri(@RequestParam("id") int idTetrimino, @ModelAttribute("tetrimino") Tetrimino tetrimino,
+			Model model, HttpServletRequest request) {
+		
 		model.addAttribute("tetrimino", daoTetri.findById(idTetrimino).get());
+		tetrimino.getCouleur();
+		tetrimino.getForme_1rota();
 		return "addtetrimino";
+	}
+
+	@PostMapping("/edit")
+	public String editTetri(@Valid @ModelAttribute("tetrimino") Tetrimino tetrimino, BindingResult result, Model model,
+			HttpServletRequest request) {
+		if (result.hasErrors()) {
+			return "addtetrimino";
+		}
+		String res = "";
+		int x = 5;
+		for (int i = 1; i <= x; i++) {
+			for (int j = 1; j <= x; j++) {
+				if (request.getParameter(i + "." + j) == null) {
+					res += "0" + ",";
+				} else {
+					res += "1" + ",";
+				}
+			}
+			res += "/";
+		}
+		tetrimino.setForme_1rota(res);
+		tetrimino.setForme_2rota(tetrimino.rotation(tetrimino.getForme_1rota()));
+		tetrimino.setForme_3rota(tetrimino.rotation(tetrimino.getForme_2rota()));
+		tetrimino.setForme_4rota(tetrimino.rotation(tetrimino.getForme_3rota()));
+		daoTetri.save(tetrimino);
+		return "redirect:./";
 	}
 
 	@GetMapping("/delete")

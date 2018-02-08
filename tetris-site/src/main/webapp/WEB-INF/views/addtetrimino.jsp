@@ -26,12 +26,14 @@
 					<label for="couleur">Couleur</label>
 					<c:if test="${tetrimino.couleur != null}">
 						<input type="color" class="bfh-colorpicker"
-							value="${tetrimino.couleur}" label="${tetrimino.couleur}">
+							value="${tetrimino.couleur}" name="couleur"
+							label="${tetrimino.couleur}">
 
 					</c:if>
 					<c:if test="${tetrimino.couleur == null}">
 						<input type="color" class="bfh-colorpicker"
-							value="${tetrimino.couleur}" label="${tetrimino.couleur}">
+							value="${tetrimino.couleur}" name="couleur"
+							label="${tetrimino.couleur}">
 
 					</c:if>
 					</br>
@@ -41,10 +43,11 @@
 				<div class="form-group">
 					<label>Forme : </label> <br />
 					<table>
-						<c:forEach var="i" begin="1" end="${ taille }">
+						<c:forEach var="a" begin="1" end="5" step="1">
 							<tr>
-								<c:forEach var="j" begin="1" end="${taille}">
-									<td><input type="checkbox" id="${i}.${j}" name="${i}.${j}"></td>
+								<c:forEach var="b" begin="1" end="5" step="1">
+									<td><input type="checkbox" id="coord" name="${a}.${b}"
+										style="height: 20px; width: 20px"></td>
 								</c:forEach>
 							</tr>
 						</c:forEach>

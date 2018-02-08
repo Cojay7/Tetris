@@ -28,7 +28,7 @@
 						<td value="Couleur">${ tetrimino.couleur }</td>
 
 						<td>
-							<table>
+							<table cellspacing="0" cellpadding="0">
 								<c:forTokens items="${tetrimino.forme_1rota}" var="ligne"
 									delims="/">
 									<tr>
@@ -39,8 +39,7 @@
 											<c:if test="${colonn==0}">
 												<td class="table-light"></td>
 											</c:if>
-											<%-- <c:out value="${colonn}" /> --%>
-										</c:forTokens>
+											</c:forTokens>
 								</c:forTokens>
 							</table>
 						</td>
@@ -58,7 +57,7 @@
 				</c:forEach>
 
 			</table>
-			<a href="/tetris-site/tetrimino/taille" class="btn btn-outline-primary btn-lg">Ajout</a>
+			<a href="/tetris-site/tetrimino/add" class="btn btn-outline-primary btn-lg">Ajout</a>
 
 		</div>
 
