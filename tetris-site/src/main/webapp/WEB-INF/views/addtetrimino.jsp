@@ -23,45 +23,23 @@
 				</div>
 				<br>
 				<div class="form-group">
-					<label for="couleur">Couleur</label> 
-						<c:if test="${tetrimino.couleur != null}">
-						<input type = "color" class="bfh-colorpicker">
-			<%-- 			<SELECT NAME="couleur"
-						id="couleur" value="${tetrimino.couleur}"> --%>
-							<%-- <option value="${tetrimino.couleur}" label="${tetrimino.couleur}" />
-							<OPTION VALUE="rouge"
-								STYLE="color: #FFFFFF; background-color: #CC0000">
-							<OPTION VALUE="vert"
-								STYLE="color: #FFFFFF; background-color: #336633">
-							<OPTION VALUE="gris"
-								STYLE="color: #FFFFFF; background-color: #868486">
-							<OPTION VALUE="bleu" class="btn btn-primary"
-								STYLE="color: #FFFFFF; background-color: #336699">
-							<OPTION VALUE="noir"
-								STYLE="color: #FFFFFF; background-color: #000000"> --%>
-						</c:if>
-						<c:if test="${tetrimino.couleur == null}">
-						<input type = "color" class="bfh-colorpicker">
-							<!-- <option value="-" label="--Please Select" />
-							<OPTION VALUE="rouge"
-								STYLE="color: #FFFFFF; background-color: #CC0000">
-							<OPTION VALUE="vert"
-								STYLE="color: #FFFFFF; background-color: #336633">
-							<OPTION VALUE="gris"
-								STYLE="color: #FFFFFF; background-color: #868486">
-							<OPTION VALUE="bleu" class="btn btn-primary"
-								STYLE="color: #FFFFFF; background-color: #336699">
-							<OPTION VALUE="noir"
-								STYLE="color: #FFFFFF; background-color: #000000"> -->
-								<!-- </select> -->
-						</c:if>
-					 </br>
+					<label for="couleur">Couleur</label>
+					<c:if test="${tetrimino.couleur != null}">
+						<input type="color" class="bfh-colorpicker"
+							value="${tetrimino.couleur}" label="${tetrimino.couleur}">
+
+					</c:if>
+					<c:if test="${tetrimino.couleur == null}">
+						<input type="color" class="bfh-colorpicker"
+							value="${tetrimino.couleur}" label="${tetrimino.couleur}">
+
+					</c:if>
+					</br>
 				</div>
 
 				<br>
 				<div class="form-group">
-				<label >Forme : </label>
-				<br/>
+					<label>Forme : </label> <br />
 					<table>
 						<c:forEach var="i" begin="1" end="${ taille }">
 							<tr>

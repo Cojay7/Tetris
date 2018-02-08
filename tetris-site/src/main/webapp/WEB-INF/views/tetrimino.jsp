@@ -34,7 +34,7 @@
 									<tr>
 										<c:forTokens items="${ligne}" var="colonn" delims=",">
 											<c:if test="${colonn==1 }">
-												<td class="bg-primary"></td>
+												<td bgcolor="${tetrimino.couleur}" ></td>
 											</c:if>
 											<c:if test="${colonn==0}">
 												<td class="table-light"></td>

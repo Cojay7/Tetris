@@ -19,8 +19,8 @@ public class App {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(ConfigSpring.class);
 		ITetriminoDAO tdao = myContext.getBean(ITetriminoDAO.class);
 
-		Tetrimino t1 = tdao.findById(5).get();
-
+		Tetrimino t1 = new Tetrimino();
+		t1.setForme_1rota("0,0,0,0/0,1,1,0/0,1,1,0/0,0,0,0");
 
 		t1.setForme_2rota(t1.rotation(t1.getForme_1rota()));
 		t1.setForme_3rota(t1.rotation(t1.getForme_2rota()));
