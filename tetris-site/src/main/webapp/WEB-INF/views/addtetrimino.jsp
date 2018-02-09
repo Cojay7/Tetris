@@ -10,7 +10,7 @@
 
 	<tiles:putAttribute name="content">
 
-		<form:form method="post" modelAttribute="tetrimino">
+		<form:form method="POST" modelAttribute="tetrimino">
 			<div class="container">
 				<h4>Ajouter ou modifier un Tetrimino</h4>
 
@@ -46,16 +46,15 @@
 							<tr>
 								<c:forEach var="b" begin="0" end="4" step="1">
 									<td><input class="check" type="checkbox" id="${a}.${b}"
-										name="${a}.${b}"<c:if test="${matrice[a][b] == 1}" >checked</c:if>> <label
+										name="${a}.${b}"/> <label
 										for="${a}.${b}"></label></td>
 								</c:forEach>
 							</tr>
 						</c:forEach>
 					</table>
 					<br />
-					<form:errors path="forme_1rota" element="div"
-						cssClass="alert alert-warning" />
-
+				
+<%-- <c:if test="${matrice[a][b] == 1}">checked</c:if> --%>
 				</div>
 
 				</br>

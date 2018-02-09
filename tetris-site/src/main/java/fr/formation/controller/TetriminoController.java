@@ -46,7 +46,7 @@ public class TetriminoController {
 	}
 
 	@PostMapping("/add")
-	public String saveTetri(@Valid @ModelAttribute("tetrimino") Tetrimino tetrimino, BindingResult result, Model model,
+	public String saveTetri(@Valid @ModelAttribute("tetrimino") Tetrimino tetrimino, BindingResult result,
 			HttpServletRequest request) {
 		if (result.hasErrors()) {
 			return "addtetrimino";
@@ -64,11 +64,12 @@ public class TetriminoController {
 			res += "/";
 		}
 		tetrimino.setForme_1rota(res);
-		tetrimino.setForme_2rota(tetrimino.rotation(tetrimino.getForme_1rota()));
-		tetrimino.setForme_3rota(tetrimino.rotation(tetrimino.getForme_2rota()));
-		tetrimino.setForme_4rota(tetrimino.rotation(tetrimino.getForme_3rota()));
+//		tetrimino.setForme_2rota(tetrimino.rotation(tetrimino.getForme_1rota()));
+//		tetrimino.setForme_3rota(tetrimino.rotation(tetrimino.getForme_2rota()));
+//		tetrimino.setForme_4rota(tetrimino.rotation(tetrimino.getForme_3rota()));
+
 		daoTetri.save(tetrimino);
-		return "redirect:./";
+		return "tetrimino";
 	}
 
 	@GetMapping("/edit")
@@ -86,11 +87,8 @@ public class TetriminoController {
 		for (int i = 0; i < tab.length; i++) {
 			matrice[i] = tab[i].split(",");
 		}
-		
-	
+
 		model.addAttribute("matrice", matrice);
-
-
 
 		return "addtetrimino";
 	}
